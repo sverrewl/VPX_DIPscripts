@@ -17,7 +17,7 @@ The WSHDlg control allows us to easily create menus at runtime.
 
 Using the above information, this chart will be handy for setting up menu systems -
 
-...
+'''
 Dip#  Hex       Decimal
 ---------------------------
 1     1         1
@@ -53,7 +53,7 @@ Dip#  Hex       Decimal
 31    40000000  1073741824
 32    80000000  2147483648
 
-...
+'''
 
 Hex values are easier to deal with in this regard, so that's why they are preferred in the dip menu scripts. But you can use either.
 
