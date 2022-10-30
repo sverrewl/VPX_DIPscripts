@@ -17,7 +17,7 @@ The WSHDlg control allows us to easily create menus at runtime.
 
 Using the above information, this chart will be handy for setting up menu systems -
 
-'''
+'''text
 Dip#  Hex       Decimal
 ---------------------------
 1     1         1
