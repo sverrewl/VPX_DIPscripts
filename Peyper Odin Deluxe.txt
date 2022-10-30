@@ -1,0 +1,25 @@
+'Sonic/Peyper Odin Deluxe
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,280,"Odin Deluxe- DIP switches"
+    .AddFrame 160,0,110,"Coins per game",&H00000018,Array("1-5-2",0,"1-6-3",&H00000008,"2-8-4",&H00000010,"(2x)1-3-1",&H00000018)'dip 12&13 (4&5)
+    .AddFrame 160,75,110,"Score threshold",&H00000003,Array("1,700,000 points",&H00000003,"1,600,000 points",&H00000002,"1,500,000 points",&H00000001,"1,400,000 points",0)'dip 16&15 (1&2)
+    .AddFrame 160,150,110,"Balls per game",&H00000004,Array("3 balls",0,"5 balls",&H00000004)'dip 14 (3)
+    .AddChk 0,5,150,Array("Show game-on time",&H00000400)'dip 6 (11)
+    .AddChk 0,20,150,Array("Show inserted coins",&H00000200)'dip 7 (10)
+    .AddChk 0,35,150,Array("Show played games",&H00000100)'dip 8 (9)
+    .AddChk 0,50,150,Array("Disable extra ball feature",&H00000080)'dip 9 (8)
+    .AddChk 0,65,150,Array("Match feature off",&H00000040)'dip 10 (7)
+    .AddChk 0,80,150,Array("Attract mode off",&H00000020)'dip 11 (6)
+    .AddChk 0,95,150,Array("Must be on to play",&H00000800)'dip 5 (12)
+    .AddChk 0,110,150,Array("Speed up",32768)'dip 1 (16)
+    .AddChk 0,125,150,Array("Dip 2",&H00004000)'dip 2 (15)
+    .AddChk 0,140,150,Array("Erase memory",&H00002000)'dip 3 (14)
+    .AddChk 0,155,150,Array("Dip 4",&H00001000)'dip 4 (13)
+    .AddLabel 0,200,280,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

@@ -1,0 +1,67 @@
+'Stern Trident - DIP switches"
+
+"Credits per coin chute #2 (center)"
+dip 1 thru 5
+
+"High score feature"
+extra ball dip 6 off
+replay dip 6 on
+
+"Balls per game"
+3 balls dip7 off
+5 balls dip 7 on
+
+"Melody option"
+2 tones only dip 8 off
+full melody dip 8 on
+
+"Credits per coin chute #3"
+dip 9 thru 13
+
+dip 14 unknown (if used)
+
+"High game to date"
+points dip 15&16 off
+1 free game dip 15 on
+2 free games dip 16 on
+3 free games dip 15&16 on
+
+"Maximum credits"
+ 5 credits dip 17&18&19 off
+10 credits dip 17 on
+15 credits dip 18 on
+20 credits dip 17&18 on
+25 credits dip 19 on
+30 credits dip 17&19 on
+35 credits dip 18&19 on
+40 credits dip 17&18&19 on
+
+"Credits display" dip 20
+
+"Match feature" dip 21
+
+dip 22 unknown (if used)
+
+"Electronic sound"
+electronic chimes dip 23 off
+computer type sounds dip 23 on
+
+dip 24 unknown (if used)
+
+Dip 25 unknown (if used)
+
+"Extra ball"
+no extra ball (bypass) dip 26 off
+award extra ball dip 26 on
+
+Dip 27 unknown (if used)
+
+"Credits per coin chute #1"
+dip 28 thru 30
+
+
+"Special award"
+100,000 points dip 31&32 off
+free ball dip 31 on
+free game dip 32 on
+free ball and free game dip 31&32 on

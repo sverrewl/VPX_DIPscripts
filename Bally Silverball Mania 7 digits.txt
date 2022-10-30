@@ -1,0 +1,25 @@
+'Bally Silverball Mania 7 digits
+'Added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 415,400,"Silverball Mania 7 digits - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"free play (40 credits)",&H03000000)'dip 25&26
+    .AddFrame 2,76,190,"Sound features",&H30000000,Array("chime effects",0,"no background noises",&H10000000,"noise effects",&H20000000,"background noises",&H30000000)'dip 29&30
+    .AddFrame 2,152,190,"High score to date",&H00200000,Array("no award",0,"3 credits",&H00200000)'dip 22
+    .AddFrame 2,200,190,"Score version",&H00100000,Array("6 digit scoring",0,"7 digit scoring",&H00100000)'dip 21
+    .AddFrame 2,248,190,"Special/extra ball modes",&H00000060,Array("points",0,"extra ball",&H00000040,"replay/extra ball",&H00000060)'dip6&7
+    .AddFrame 210,0,190,"Balls per game",&H40000000,Array("3 balls",0,"5 balls",&H40000000)'dip 31
+    .AddFrame 210,46,190,"Carryover award",&H00000080,Array("1 credit",0,"3 credits",&H00000080)'dip 8
+    .AddFrame 210,92,190,"Carryover advance",&H00004000,Array("advance on SBM special",&H00004000,"advance on kicker special",0)'dip 15
+    .AddFrame 210,138,190,"Extra ball lites",&H80000000,Array("together with 5X bonus",&H80000000,"after 5X bonus",0)'dip32
+    .AddFrame 210,184,190,"Kicker special lites",32768,Array("together with SBM special",32768,"after awarding SBM special",0)'dip 16
+    .AddFrame 210,230,190,"Center hoop advances",&H00800000,Array("1 letter",0,"2 letters",&H00800000)'dip24
+    .AddChk 210,280,190,Array("Match feature",&H08000000)'dip 28
+    .AddChk 210,295,190,Array("Credits displayed",&H04000000)'dip 27
+    .AddChk 210,310,200,Array("Silverball (backglass) carryover feature",&H00400000)'dip 23
+    .AddLabel 50,330,340,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

@@ -1,0 +1,29 @@
+'Bally Centaur II
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Centaur II - DIP switches"
+    .AddFrame 0,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 0,76,190,"All bonus lite adjustment",&H00000040,Array("Only 20K, 40K && 60K come back on",0,"Any lit bonus lites will come back on",&H00000040)'dip 7
+    .AddFrame 0,122,190,"Right 4 drop target reset",&H00000080,Array("all targets are reset",0,"dropped in sequence 1-3 will drop",&H00000080)'dip 8
+    .AddFrame 0,168,190,"Making all 4 guardian orb lites",32678,Array("releases 1 ball per ball only",0,"releases a ball every time",32768)'dip 16
+    .AddFrame 0,214,190,"Replay limit",&H10000000,Array("1 replay per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddChk 0,270,190,Array("Match feature",&H08000000)'dip 28
+    .AddChk 0,285,190,Array("Credits displayed",&H04000000)'dip 27
+    .AddChk 0,300,190,Array("Bonus multiplier in memory",&H00000020)'dip 6
+    .AddFrame 205,0,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,76,190,"On last ball release lite will",&H00100000,Array("come on and go on and off",0,"come on and stay on",&H00100000)'dip 21
+    .AddFrame 205,122,190,"First orbs lite will",&H00200000,Array("be off at start of game",0,"be on at start of game",&H00200000)'dip 22
+    .AddFrame 205,168,190,"Game over or tilt",&H00400000,Array("1 tilt alowed, 2nd time game over",0,"regular standard tilt",&H00400000)'dip 23
+    .AddFrame 205,214,190,"Game over animation",&H20000000,Array("no balls on the playfield",0,"5 balls on playfield every 15 min.",&H20000000)'dip 30
+    .AddChk 205,270,190,Array("Right target release lite in memory",&H00800000)'dip 24
+    .AddChk 205,285,190,Array("In-line drop target lites memory",&H00002000)'dip 14
+    .AddChk 205,300,190,Array("Captive 1-4 Orbs in memory",&H00004000)'dip 15
+    .AddLabel 50,330,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,350,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

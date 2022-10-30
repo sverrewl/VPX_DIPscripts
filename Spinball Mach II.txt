@@ -1,0 +1,21 @@
+'Spinball Mach II
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Mach II - DIP switches"
+          .AddFrame 0,0,190,"New shot timer",49152,Array("disabled",0,"10 seconds",32768,"12 seconds",&H00004000,"15 seconds",49152)'SL2-5,6(dip 16,15)
+          .AddFrame 0,76,190,"Replay threshold",&H000000C0,Array("100 million points",0,"150 million points",&H00000080,"200 million points",&H00000040,"250 million points", &H000000C0)'SL1-5,6(Dip 8,7)
+          .AddFrame 0,152,190,"Balls per game",&H0000800,Array ("3 balls",0,"5 balls",&H00000800)'SL2-1(dip 12)
+    .AddFrame 0,198,190,"Lock option",&H00010000,Array ("easy",0,"difficult",&H00010000)'SL3-4(dip 17)
+    .AddFrame 0,244,190,"Rescue option",&H00100000,Array ("easy",0,"difficult",&H00100000)'SL3-8(dip 21)
+    .AddFrame 205,0,190,"Handicap value",&H00000300,Array("250 million points",0,"300 million points",&H00000100,"350 million points",&H00000200,"400 million points",&H00000300)'SL2-3,4(dip 10,9)
+    .AddFrame 205,76,190,"fuel refill (ramp down)",&H00003000,Array("1 fuel refill",0,"2 fuel refills",&H00001000,"3 fuel refills",&H00002000,"4 fuel refills",&H00003000)'SL2-7,8(dip 14,13)
+          .AddFrame 205,152,190,"Credits per coin",&H0000000F,Array("1 coin  - 1 credit && 1 coin - 5 credits",&H00000005,"1 coin  - 1 credit && 1 coin - 3 credits",&H00000006,"1 coins - 1 credit && 1 coin - 6 credits",&H00000008)'SL1-4,3,2,1(Dip 1-4)`
+    .AddChk 205,230,190,Array("Automatic point enable",&H00080000)'SL3-1(dip 20)
+    .AddChk 205,250,190,Array("Special flight enable",&H00040000)'SL3-2(dip 19)
+      .AddLabel 50,310,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

@@ -1,0 +1,23 @@
+'Stern Electronic Pinball
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Electronic Pinball - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H00070000,Array("5 credits",0,"10 credits",&H00010000,"15 credits",&H00020000,"20 credits",&H00030000,"25 credits",&H00040000,"30 credits",&H00050000,"35 credits",&H00060000,"40 credits",&H00070000)'dip 17&18&19
+    .AddFrame 2,130,190,"Outlane special award",&HC0000000,Array("100,000 points",0,"free ball",&H40000000,"free game",&H80000000,"free ball and free game",&HC0000000)'dip 31&32
+    .AddChk 2,210,180,Array("Match feature",&H00100000)'dip 21
+    .AddChk 2,230,115,Array("Credits display",&H00080000)'dip 20
+    .AddChk 2,250,115,Array("4 player games",&H01000000)'dip 25
+    .AddFrame 205,0,190,"Balls per game",&H00000040,Array("3 balls",0,"5 balls",&H00000040)'dip 7
+    .AddFrame 205,46,190,"Pro or novice adjust",32768,Array("all lites on",0,"lites alternating",32768)'dip 16
+    .AddFrame 205,92,190,"High score award",&H00000020,Array("extra ball",0,"replay",&H00000020)'dip 6
+    .AddFrame 205,139,190,"Drop targets 2nd time down",&H00800000,Array("special lite on only",0,"special lite on and 1 replay awarded",&H00800000)'dip 24
+    .AddFrame 205,186,190,"Melody option",&H00000080,Array("2 tones only",0,"full melody",&H00000080)'dip 8
+    .AddFrame 205,233,190,"High game to date award",&H00004000,Array("points",0,"replay",&H00004000)'dip 15
+    .AddLabel 50,290,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

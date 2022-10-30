@@ -1,0 +1,38 @@
+'Gottlieb System 80 with Speech and Sound (SS)board
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"System 80 with Speech and Sound (SS)board - DIP switches"
+    .AddFrame 0,0,190,"Maximum credits",49152,Array("8 credits",0,"10 credits",32768,"15 credits",&H00004000,"25 credits",49152)'dip 15&16
+    .AddFrame 0,76,190,"Coin chute 1 and 2 control",&H00002000,Array("seperate",0,"same",&H00002000)'dip 14
+    .AddFrame 0,122,190,"Playfield special",&H00200000,Array("replay",0,"extra ball",&H00200000)'dip 22
+    .AddFrame 0,168,190,"High score to date awards",&H00C00000,Array("not displayed and no award",0,"displayed and no award",&H00800000,"displayed and 2 replays",&H00400000,"displayed and 3 replays",&H00C00000)'dip 23&24
+    .AddChk 0,250,190,Array("Sound when scoring?",&H01000000)'dip 25
+    .AddChk 0,265,190,Array("Replay button tune?",&H02000000)'dip 26
+    .AddChk 0,280,190,Array("Coin switch tune?",&H04000000)'dip 27
+    .AddChk 0,295,190,Array("Credits displayed?",&H08000000)'dip 28
+    .AddChk 0,310,190,Array("Match feature",&H00020000)'dip 18
+    .AddChk 0,325,190,Array("Attract features",&H20000000)'dip 30
+    .AddChk 0,340,190,Array("Dip 31 (game option)",&H40000000)'dip 31
+    .AddChk 0,355,190,Array("Dip 32 (game option)",&H80000000)'dip 32
+    .AddFrame 205,0,190,"Balls per game",&H00010000,Array("5 balls",0,"3 balls",&H00010000)'dip 17
+    .AddFrame 205,46,190,"Replay limit",&H00040000,Array("no limit",0,"1 per game",&H00040000)'dip 19
+    .AddFrame 205,92,190,"Novelty",&H00080000,Array("normal game mode",0,"50,000 points for special/extra ball",&H0080000)'dip 20
+    .AddFrame 205,138,190,"Game mode",&H00100000,Array("replay",0,"extra ball",&H00100000)'dip 21
+    .AddFrame 205,184,190,"3rd coin chute credits control",&H00001000,Array("no effect",0,"add 9",&H00001000)'dip 13
+    .AddFrame 205,230,190,"Tilt penalty",&H10000000,Array("game over",0,"ball in play",&H10000000)'dip 29
+    .AddFrameExtra 205,276,190,"SS-dip 3&&4 Attract Sound",&H000C,Array("off",0,"every 10 seconds",&H0004,"every 2 minutes",&H0008,"every 4 minutes",&H000C)'SS-board dip 3&4
+    .AddChkExtra 205,355,190,Array("SS-dip 5 Background sound",&H0010)'SS-board dip 5
+    .AddChkExtra 205,370,190,Array("SS-dip 6 Speech",&H0020)'SS-board dip 6
+    .AddChkExtra 205,385,190,Array("SS-dip 7 Extra sound option",&H0040)'SS-board dip 7
+    .AddLabel 50,410,300,20,"After hitting OK, press F3 to reset game with new settings."
+  End With
+  Dim extra
+  extra = Controller.Dip(4) + Controller.Dip(5)*256
+  extra = vpmDips.ViewDipsExtra(extra)
+  Controller.Dip(4) = extra And 255
+  Controller.Dip(5) = (extra And 65280)\256 And 255
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

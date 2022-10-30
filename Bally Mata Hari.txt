@@ -1,0 +1,23 @@
+'Bally Mata Hari
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Mata Hari - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H00070000,Array("10 credits",&H00010000,"20 credits",&H00030000,"30 credits",&H00050000,"40 credits",&H00070000)'dip 17&18&19
+    .AddFrame 2,80,190,"High game to date award",&H00000060,Array("no award",0,"1 credit",&H00000020,"2 credits",&H00000040,"3 credits",&H00000060)'dip 6&7
+    .AddFrame 2,160,190,"Novelty mode",&H60000000,Array("points",0,"extra ball",&H40000000,"replay",&H60000000)'dip 30&31
+    .AddFrame 205,0,190,"Balls per game",32768,Array("3 balls",0,"5 balls",32768)'dip 16
+    .AddFrame 205,46,190,"High score feature",&H80000000,Array("extra ball",0,"replay",&H80000000)'dip 32
+    .AddFrame 205,92,190,"Top saucer bonus multiplier",&H00400000,Array("3K, 2X, 3X, 5X",0,"2X, 3X, 5X, 3K",&H00400000)'dip 23
+    .AddFrame 205,138,190,"A && B special adjust",&H00800000,Array("1 special only",0,"special comes back on",&H00800000)'dip 24
+    .AddChk 205,190,100,Array("Match feature",&H00100000)'dip 21
+    .AddChk 205,207,120,Array("Credits displayed",&H00080000)'dip 20
+    .AddChk 310,190,90,Array("Melody option",&H00000080)'dip 8
+    .AddLabel 50,230,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+
+

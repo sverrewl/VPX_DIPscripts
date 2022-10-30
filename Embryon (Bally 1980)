@@ -5,26 +5,26 @@
 Sub editDips
     Dim vpmDips:Set vpmDips = New cvpmDips
     With vpmDips
-		.AddForm 500, 600, "Embryon - DIP switches"
-		.AddFrame 120, 0, 120, "Maximum credits", &H03000000, Array("10 credits", 0, "15 credits", &H01000000, "25 credits", &H02000000, "40 credits", &H03000000)								'dip 25&26
-		.AddFrame 120, 75, 120, "Balls per game", &HC0000000, Array("2 balls", &HC0000000, "3 balls",  &H00000000, "4 balls", &H80000000,  "5 balls", &H40000000)								'dip 31&32                         
-		.AddFrame 2, 0, 100,   "Credits/Coin Chute 1", &H0000001F, Array("1/1", 0, "1/2", &H0000000B, "2/1", &H00000001, "5/2",&H0000000F, "14/1",&H0000000A)									'dip 1-5
-		.AddFrame 2, 90, 100, "Credits/Coin Chute 2", &H0001F000, Array("Same a Chute #1", 0, "1/1", &H00010000, "2/1", &H00020000, "3/1", &H00030000, "4/1", &H00040000, "14/1",&H000E0000)	'dip 17-20
-		.AddFrame 2, 195, 100, "Credits/Coin Chute 3", &H00001F00, Array("1/1", 0, "1/2", &H00000B00, "2/1", &H00000100, "5/2", &H00000F00, "14/1", &H00000A00)									'dip 9-13
-		.AddChk 120, 155, 263,  Array("Attract Mode Voice (Activate Embryon)", &H20000000)																										'dip 30
-		.AddChk 120, 175, 263,  Array("Memory for Bonus and Specials", &H00000040)																												'dip 7
-		.AddChk 120, 195, 263,  Array("Memory for Multipliers", &H00000080) 																													'dip 8
-		.AddChk 120, 215, 263,  Array("Memory for lit Lanes 1&2", &H00400000) 																													'dip 23
-		.AddChk 120, 235, 263,  Array("Memory for Flipsave Feature", &H00800000) 																												'dip 24
-		.AddChk 120, 255, 263,  Array("Memory for Top Center Lane Feature", &H00002000) 																										'dip 14
-		.AddChk 120, 275, 263,  Array("Memory for Left Side Captive Ball Feature", 32768)																										'dip 16
-		.AddChk 120, 295, 263,  Array("Memory for Right Side Captive Ball Feature", &H00004000) 																								'dip 15
-		.AddChk 120, 315, 263,  Array("Memory for lit Center Ouside Targets", &H00200000)																										'dip 22
-		.AddChk 120, 335, 263,  Array("Hitting 3 top drop targets once to Collect/ off Twice ", &H00000020)																						'dip 6
-		.AddChk 120, 355, 263,  Array("Hitting Center left/right target will light 2 lites", &H00100000)																						'dip 21
-		.AddChk 120, 375, 263,  Array("Replays Earned will be Collected/ off only 1 per play", &H10000000)																						'dip 29
-		.AddChk 2, 290, 115,  Array("Match feature", &H08000000)																																'dip 28
-		.AddChk 2, 310, 115,  Array("Credits displayed", &H04000000) 																															'dip 27					
+    .AddForm 500, 600, "Embryon - DIP switches"
+    .AddFrame 120, 0, 120, "Maximum credits", &H03000000, Array("10 credits", 0, "15 credits", &H01000000, "25 credits", &H02000000, "40 credits", &H03000000)                'dip 25&26
+    .AddFrame 120, 75, 120, "Balls per game", &HC0000000, Array("2 balls", &HC0000000, "3 balls",  &H00000000, "4 balls", &H80000000,  "5 balls", &H40000000)               'dip 31&32
+    .AddFrame 2, 0, 100,   "Credits/Coin Chute 1", &H0000001F, Array("1/1", 0, "1/2", &H0000000B, "2/1", &H00000001, "5/2",&H0000000F, "14/1",&H0000000A)                 'dip 1-5
+    .AddFrame 2, 90, 100, "Credits/Coin Chute 2", &H0001F000, Array("Same a Chute #1", 0, "1/1", &H00010000, "2/1", &H00020000, "3/1", &H00030000, "4/1", &H00040000, "14/1",&H000E0000)  'dip 17-20
+    .AddFrame 2, 195, 100, "Credits/Coin Chute 3", &H00001F00, Array("1/1", 0, "1/2", &H00000B00, "2/1", &H00000100, "5/2", &H00000F00, "14/1", &H00000A00)                 'dip 9-13
+    .AddChk 120, 155, 263,  Array("Attract Mode Voice (Activate Embryon)", &H20000000)                                                    'dip 30
+    .AddChk 120, 175, 263,  Array("Memory for Bonus and Specials", &H00000040)                                                        'dip 7
+    .AddChk 120, 195, 263,  Array("Memory for Multipliers", &H00000080)                                                           'dip 8
+    .AddChk 120, 215, 263,  Array("Memory for lit Lanes 1&2", &H00400000)                                                           'dip 23
+    .AddChk 120, 235, 263,  Array("Memory for Flipsave Feature", &H00800000)                                                        'dip 24
+    .AddChk 120, 255, 263,  Array("Memory for Top Center Lane Feature", &H00002000)                                                     'dip 14
+    .AddChk 120, 275, 263,  Array("Memory for Left Side Captive Ball Feature", 32768)                                                   'dip 16
+    .AddChk 120, 295, 263,  Array("Memory for Right Side Captive Ball Feature", &H00004000)                                                 'dip 15
+    .AddChk 120, 315, 263,  Array("Memory for lit Center Ouside Targets", &H00200000)                                                   'dip 22
+    .AddChk 120, 335, 263,  Array("Hitting 3 top drop targets once to Collect/ off Twice ", &H00000020)                                           'dip 6
+    .AddChk 120, 355, 263,  Array("Hitting Center left/right target will light 2 lites", &H00100000)                                            'dip 21
+    .AddChk 120, 375, 263,  Array("Replays Earned will be Collected/ off only 1 per play", &H10000000)                                            'dip 29
+    .AddChk 2, 290, 115,  Array("Match feature", &H08000000)                                                                'dip 28
+    .AddChk 2, 310, 115,  Array("Credits displayed", &H04000000)                                                              'dip 27
         .AddLabel 50, 395, 350, 20, "After hitting OK, press F3 to reset game with new settings."
         .ViewDips
     End With

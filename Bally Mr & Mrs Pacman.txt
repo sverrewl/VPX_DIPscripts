@@ -1,0 +1,25 @@
+'Bally Mr & Mrs Pacman
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Mr & Mrs Pacman - DIP switches"
+    .AddChk 7,10,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,10,115,Array("Credits display",&H04000000)'dip 27
+    .AddFrame 2,30,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 2,106,190,"Ball in Maze-saucer kickout",&H00000020,Array("kicks out before all moves are used",0,"does not kick till all moves are used",&H00000020)'dip 6
+    .AddFrame 2,152,190,"Drop target 20,000 yellow arrow",&H00000040,Array("20,000 Arrow starts off",0,"20,000 Arrow starts on",&H00000040)'dip 7
+    .AddFrame 2,198,190,"Game over attract",&H20000000,Array("Off",0,"On",&H20000000)'dip 30
+    .AddFrame 2,248,190,"Pacman lites at start of the game",&H00002000,Array("3 Pacman lites",0,"4 Pacman lites",&H00002000)'dip 14
+    .AddFrame 2,298,190,"Pacman aggressive lite",49152,Array ("goes out after all moves are used",0,"goes out when monster dies",&H00004000,"stays on entire ball",49152)'dip 15&16
+    .AddFrame 205,30,190,"Balls per game *",&HC0000000,Array ("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,106,190,"Time to beat",&H00700000,Array("10",0,"15",&H00100000,"20",&H00200000,"25",&H00300000,"30",&H00400000,"35",&H00500000,"40",&H00600000,"45",&H00700000)'dip 21&22&23
+    .AddFrame 205,248,190,"Extra ball lite on after",&H00800000,Array("going into saucer 10 times",0,"going into saucer 5 times",&H00800000)'dip 24
+    .AddFrame 205,298,190,"Number of replays per game",&H10000000,Array("Only 1 replay per player per game",0,"All replays earned will be collected",&H10000000)'dip 29
+    .AddLabel 30,370,350,20,"* Use Insert key to change left apron card to match."
+    .AddLabel 30,390,350,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

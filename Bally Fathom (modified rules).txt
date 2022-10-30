@@ -1,0 +1,24 @@
+'Bally Fathom (modified rules)
+'added by InkochnitoSub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Fathom (modified rules) - DIP switches"
+    .AddChk 7,10,120,Array("Match feature",&H08000000)'dip 28
+    .AddChk 130,10,120,Array("Game over attract",&H20000000)'dip 30
+    .AddChk 260,10,120,Array("Credits displayed",&H04000000)'dip 27
+    .AddFrame 2,30,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"free play (40 credits)",&H03000000)'dip 25&26
+    .AddFrame 2,106,190,"Locked ball adjustment",&H00000020,Array("eject ball at game end",0,"ball remains locked",&H00000020)'dip 6
+    .AddFrame 2,152,190,"Bonus special lit at maximum",&H00000040,Array("blue and green bonus",0,"blue or green bonus",&H00000040)'dip 7
+    .AddFrame 2,198,190,"Extra ball lite is lit for",&H00000080,Array("6 seconds",0,"10 seconds",&H00000080)'dip 8
+    .AddFrame 2,244,190,"A-B-C special adjust",32768,Array("replay",0,"alternating points or replay",32768)'dip 16
+    .AddFrame 205,30,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,106,190,"Number of replays per game",&H10000000,Array("only 1 replay per player per game",0,"all replays earned will be collected",&H10000000)'dip 29
+    .AddFrame 205,152,190,"Drop target memory",&H00200000,Array("not in memory",0,"kept in memory",&H00200000)'dip 22
+    .AddFrame 205,198,190,"55,000 bonus lites",&H00400000,Array("not in memory",0,"kept in memory",&H00400000)'dip 23
+    .AddFrame 205,244,190,"A-B-C lites",&H00800000,Array("not in memory",0,"kept in memory",&H00800000)'dip 24
+    .AddLabel 50,300,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,320,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

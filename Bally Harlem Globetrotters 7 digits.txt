@@ -1,0 +1,26 @@
+'Bally Harlem Globetrotters 7 digits
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Harlem GlobeTrotters 7 digits - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"free play (40 credits)",&H03000000)'dip 25&26
+    .AddFrame 2,87,190,"Sound features",&H30000000,Array("chime effects",0,"noises and no background",&H10000000,"noise effects",&H20000000,"noises and background",&H30000000)'dip 29&30
+    .AddFrame 2,170,190,"Special adjustment",&H00000060,Array("points",0,"extra ball",&H00000040,"replay/extra ball",&H00000060)'dip 6&7
+    .AddFrame 2,230,190,"5 side target lite adjustment",&H00800000,Array("targets will reset",0,"targets are held in memory",&H00800000)'dip 24
+    .AddFrame 2,276,190,"G-L-O-B-E saucer scanning adjustment",&H00002000,Array("Globe lites do not scan",0,"Globe lites keep scanning",&H00002000)'dip 14
+    .AddFrame 2,322,190,"Dunk shot target special",&H00400000,Array("is reset after collecting",0,"stays lit",&H00400000)'dip 23
+    .AddFrame 205,0,190,"High game to date",&H00200000,Array("no award",0,"3 credits",&H00200000)'dip 22
+    .AddFrame 205,46,190,"Score version",&H00100000,Array("6 digit scoring",0,"7 digit scoring",&H00100000)'dip 21
+    .AddFrame 205,92,190,"Balls per game",&H40000000,Array("3 balls",0,"5 balls",&H40000000)'dip 31
+    .AddFrame 205,138,190,"Saucer targets reset",&H00000080,Array("when ball enters target saucer",0,"on next ball in play",&H00000080)'dip 8
+    .AddFrame 205,184,190,"Super bonus",&H00004000,Array("is reset every ball",0,"is held in memory",&H00004000)'dip 15
+    .AddFrame 205,230,190,"Globe special lite adjustment",&H80000000,Array("left outlane 25K only lit",0,"left outlane 25K and Globe special lit",&H80000000)'dip 32
+    .AddFrame 205,276,190,"Left and right spinner adjust",32768,Array("left spinner only which alternates",0,"left and right spinner lite on",32768)'dip 16
+    .AddChk 205,330,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,350,115,Array("Credits displayed",&H04000000)'dip 27
+    .AddLabel 50,370,350,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

@@ -1,0 +1,25 @@
+'Bally Playboy
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Playboy - DIP switches"
+    .AddChk 2,10,180,Array("Match feature",&H00100000)'dip 21
+    .AddChk 205,10,115,Array("Credits display",&H00080000)'dip 20
+    .AddFrame 2,30,190,"Maximum credits",&H00070000,Array("5 credits",0,"10 credits",&H00010000,"15 credits",&H00020000,"20 credits",&H00030000,"25 credits",&H00040000,"30 credits",&H00050000,"35 credits",&H00060000,"40 credits",&H00070000)'dip 17&18&19
+    .AddFrame 2,160,190,"Sound features",&H80000080,Array("chime effects",&H80000000,"chime and tunes",0,"noise",&H00000080,"noises and tunes",&H80000080)'dip 8&32
+    .AddFrame 2,235,190,"High game to date",&H00000060,Array("no award",0,"1 credit",&H00000020,"2 credits",&H00000040,"3 credits",&H00000060)'dip 6&7
+    .AddFrame 2,310,190,"High score feature",&H00006000,Array("no award",0,"extra ball",&H00004000,"replay",&H00006000)'dip 14&15
+    .AddFrame 205,30,190,"Balls per game", 32768,Array("3 balls",0,"5 balls", 32768)'dip 16
+    .AddFrame 205,76,190,"Drop target special remains lit",&H00200000,Array("until ball goes in outhole",0,"until collected",&H00200000)'dip 22
+    .AddFrame 205,122,190,"Key lites made are",&H00400000,Array ("not held over",0,"held over until next ball",&H00400000)'dip 23
+    .AddFrame 205,168,190,"Outlane 25,000 adjustment",&H00800000,Array("25,000 lite alternates",0,"both lanes lite for 25,000",&H00800000)'dip 24
+    .AddFrame 205,214,190,"2 and 3 key lane are",&H10000000,Array("not tied together",0,"tied together",&H10000000)'dip 29
+    .AddFrame 205,260,190,"1 and 4 key lane are",&H20000000,Array("not tied together",0,"tied together",&H20000000)'dip 30
+    .AddFrame 205,306,190,"Extra ball and/or special",&H40000000,Array("are not held",0,"are held until made",&H40000000)'dip 31
+    .AddLabel 50,382,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

@@ -1,0 +1,30 @@
+'Bally Centaur
+'added by Gaston
+'corrected by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 315,220,"Centaur - DIP switches"
+    .AddFrame 2,5,88,"Balls in play",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 2,85,88,"Tilt settings",&H00400000, Array("Ball Tilt",&H00400000,"Game Tilt",0)'dip 23
+    .AddFrame 2,137,88,"Max. credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 104,5,88,"Guardian release",&H000F8F1F,Array("Each time",&H58001,"Once per ball",&H50001)'dip 16
+    .AddFrame 104,52,88,"Drop targets",&H00000080,Array("Store dropped",&H00000080,"Reset always",0)'dip 8
+    .AddFrame 104,99,88,"Drop tgt. bonus",&H00002000,Array("Stored",&H00002000,"Not stored",0)'dip 14
+    .AddChk 105,150,95,Array("Store orbs",&H00004000)'dip 15
+    .AddChk 105,166,95,Array("Store multiplier",&H00000020)'dip 6
+      .AddChk 105,182,95,Array("Store bonus",&H00000040)'dip 7
+    .AddChk 105,198,200,Array("Fires ball every 15 min. at Game Over",&H20000000)'dip 30
+    .AddFrame 206,5,88,"Last ball release",&H00100000,Array("On",&H00100000,"Off",0)'dip 21
+    .AddFrame 206,52,88,"Right release",&H00800000,Array("Stays on",&H00800000,"Off",0)'dip 24
+    .AddFrame 206,99,88,"Initial orbs lit",&H00200000,Array("One",&H00200000,"None",0)'dip 22
+    .AddChk 207,150,95,Array("Match feature",&H08000000)'dip 28
+    .AddChk 207,166,95,Array("Credits display",&H04000000)'dip 27
+    .AddChk 207,182,100,Array("Unlimited replays",&H10000000)'dip 29
+    .AddLabel 2,220,308,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 2,240,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

@@ -1,0 +1,24 @@
+'Atari Space Riders
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Space Riders - DIP switches"
+    .AddFrame 0,5,190,"Coins per credit",&H000000C3,Array("1 coin 1 credit",0,"1 coin 2 credits",&H00000002,"1 coin 3 credits",&H00000001,"1 coin 4 credits",&H00000003,"2 coins 1 credits",&H00000080)'SW2-3&SW2-4&SW2-5&SW2-6 (dip 2&1&8&7)
+    .AddFrame 0,95,190,"Maximum credits",49152,Array("5 credits",0,"10 credits",32768,"15 credits",&H00004000,"20 credits",49152)'SW1-5&SW1-6 (dip 16&15)
+    .AddFrame 0,172,190,"Special lights when",&H00000100,Array("all targets and drop targets hit",0,"all captive ball targets hit",&H00000100)'SW1-4 (dip 9)
+    .AddFrame 0,220,190,"Balls per game",&H00000008,Array("3 balls",0,"5 balls",&H00000008)'SW2-1 (dip 4)
+    .AddFrame 0,268,190,"Score threshold award",&H00001000,Array("extra ball",0,"replay",&H00001000)'SW1-8 (dip 13)
+    .AddFrame 210,5,190,"Score threshold level",&H000F0000,Array("no replay",0,"180,000 and 220,000 points",&H00040000,"230,000 and 280,000 points",&H00070000,"310,000 and 360,000 points",&H000B0000,"390,000 and 440,000 points",&H000F0000)'rotary (dip 17&18&19&20)
+    .AddFrame 210,95,190,"Special award",&H00000030,Array("100,000 points",0,"50,000 points",&H00000010,"extra ball",&H00000020,"replay",&H00000030)'SW2-7&SW2-8 (dip 6&5)
+    .AddFrame 210,172,190,"Extra ball award",&H00000400,Array("25,000 points",0,"extra ball",&H00000400)'SW1-2 (dip 11)
+    .AddFrame 210,220,190,"Number of score threshold levels",&H00000200,Array("only first level",0,"first and second level",&H00000200)'SW1-3 (dip 10)
+    .AddFrame 210,268,190,"Not used",&H00002000,Array("off",0,"on",&H00002000)'SW1-7 (dip 14)
+    .AddChk 0,320,190,Array("Match feature",&H00000004)'SW2-2 (dip 3)
+    .AddChk 210,320,190,Array("Diagnostic mode (must be off)",&H00000800)'SW1-1 (dip 12)
+    .AddLabel 50,350,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")
+

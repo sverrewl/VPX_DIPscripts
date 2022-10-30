@@ -1,0 +1,25 @@
+'Bally Mystic 7 digits
+'Added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 350,400,"Mystic 7 digits - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"free play (40 credits)",&H03000000)'dip 25&26
+    .AddFrame 2,76,190,"Sound features",&H30000000,Array("chime effects",0,"no background noises",&H10000000,"noise effects",&H20000000,"background && noises",&H30000000)'dip 29&30
+    .AddFrame 2,154,190,"High score feature",&H00000060,Array("no award",0,"extra ball",&H00000040,"replay",&H00000060)'dip 6&7
+    .AddFrame 2,215,190,"Multiplier memory",49152,Array("no memory",0,"Mystical lane",32768,"bonus X && Mystical lane",49152)'dip 15&16
+    .AddFrame 205,0,190,"High game to date",&H00200000,Array("no award",0,"3 credits",&H00200000)'dip 22
+    .AddFrame 205,46,190,"Score version",&H00100000,Array("6 digit scoring",0,"7 digit scoring",&H00100000)'dip 21
+    .AddFrame 205,92,190,"Balls per game",&H40000000,Array("3 balls",0,"5 balls",&H40000000)'dip 31
+    .AddFrame 205,138,190,"Pyramids/Eyes special",&H00000080,Array("2 credits",0,"3 credits",&H00000080)'dip 8
+    .AddFrame 205,184,190,"Mystical lane adjust",&H80000000,Array("5K lite on",0,"5K && 2X lite on",&H80000000)'dip 32
+    .AddChk 205,235,150,Array("Pyramids/Eyes memory",&H00400000)'dip 23
+    .AddChk 205,250,150,Array("Star lane memory",&H00800000)'dip 24
+    .AddChk 205,265,150,Array("No alternating spinner lite",&H00002000)'dip 14
+    .AddChk 205,280,150,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,295,150,Array("Credits displayed",&H04000000)'dip 27
+    .AddLabel 50,315,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

@@ -1,0 +1,27 @@
+'Bally Spy Hunter
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Spy Hunter - DIP switches"
+    .AddChk 7,10,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,10,115,Array("Credits display",&H04000000)'dip 27
+    .AddFrame 2,30,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 2,106,190,"Weapon values adjustment",&H00000020,Array("weapon values are reset",0,"weapon values are recalled",&H00000020)'dip 6
+    .AddFrame 2,152,190,"Completing Weapons first time",&H00000040,Array("lights 90K light",0,"scores extra ball",&H00000040)'dip 7
+    .AddFrame 2,198,190,"Weapons values special limit",&H00000080,Array("only 1 special",0,"more than 1 special",&H00000080)'dip 8
+    .AddFrame 2,248,190,"Game style adjustment",&H00002000,Array("bonus must be qualified",0,"spinner lights must match",&H00002000)'dip 14
+    .AddFrame 2,298,190,"Drop target special adjustment",49152,Array ("special lights at 70K",0,"special lights at 60K",&H00004000,"special lights at 50K",32768,"special lights at 40K",49152)'dip 15&16
+    .AddFrame 205,30,190,"Balls per game",&HC0000000,Array ("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,106,190,"Double/triple playfield values",&H00100000,Array("Missile arrow every 5th target",0,"Missile arrow every 4th target",&H00100000)'dip 21
+    .AddFrame 205,152,190,"Bonus advance adjustment",&H00200000,Array("no advance",0,"drop targets advance bonus value",&H00200000)'dip 22
+    .AddFrame 205,198,190,"Bonus saucer qualified",&H00400000,Array("drop targets do not qualify bonus",0,"drop targets qualify bonus",&H00400000)'dip 23
+    .AddFrame 205,248,190,"Drop target values adjustment",&H00800000,Array("values reset",0,"values in memory",&H00800000)'dip 24
+    .AddFrame 205,298,190,"Special adjust",&H10000000,Array("only the first special awarded",0,"every special awarded",&H10000000)'dip 29
+    .AddFrame 205,348,190,"Spinner lights adjustment",&H20000000,Array("harder",0,"easy",&H20000000)'dip 30
+    .AddLabel 50,400,300,20,"Set selftest position 17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,420,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")

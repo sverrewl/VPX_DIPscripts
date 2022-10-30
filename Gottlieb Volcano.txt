@@ -1,0 +1,36 @@
+'Gottlieb Volcano
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Volcano - DIP switches"
+    .AddFrame 2,5,190,"Maximum credits",49152,Array("8 credits",0,"10 credits",32768,"15 credits",&H00004000,"25 credits",49152)'dip 15&16
+    .AddFrame 2,81,190,"Coin chute 1 and 2 control",&H00002000,Array("seperate",0,"same",&H00002000)'dip 14
+    .AddFrame 2,127,190,"Playfield special",&H00200000,Array("replay",0,"extra ball",&H00200000)'dip 22
+    .AddFrame 2,173,190,"3rd coin chute credits control",&H00001000,Array("no effect",0,"add 9",&H00001000)'dip 13
+    .AddFrame 2,219,190,"High game to date awards",&H00C00000,Array("not displayed and no award",0,"displayed and no award",&H00800000,"displayed and 2 credits",&H00400000,"displayed and 3 credits",&H00C00000)'dip 23&24
+    .AddChk 2,295,190,Array("Match feature",&H00020000)'dip 18
+    .AddChkExtra 2,310,190,Array("Speech",&H0020)'SS-board dip 6
+    .AddChkExtra 2,325,190,Array("Background sound",&H0010)'SS-board dip 5
+    .AddChk 2,340,190,Array("Must be on",&H01000000)'dip 25
+    .AddChk 2,355,190,Array("Replay button tune?",&H02000000)'dip 26
+    .AddFrameExtra 205,5,190,"Attract sound",&H000c,Array("off",0,"every 10 seconds",&H0004,"every 2 minutes",&H0008,"every 4 minutes",&H000C)'SS-board dip 3&4
+    .AddFrame 205,81,190,"Balls per game",&H00010000,Array("5 balls",0,"3 balls",&H00010000)'dip 17
+    .AddFrame 205,127,190,"Replay limit",&H00040000,Array("no limit",0,"one per game",&H00040000)'dip 19
+    .AddFrame 205,173,190,"Novelty mode",&H00080000,Array("normal game mode",0,"50,000 points per special/extra ball",&H00080000)'dip 20
+    .AddFrame 205,219,190,"Game mode",&H00100000,Array("replay",0,"extra ball",&H00100000)'dip 21
+    .AddFrame 205,265,190,"Outlane extra ball one shot lite",&H40000000,Array("no extra ball through right outlane",0,"extra ball one shot light active",&H40000000)'dip 31
+    .AddChk 205,325,190,Array("Coin switch tune?",&H04000000)'dip 27
+    .AddChk 205,340,190,Array("Credits displayed?",&H08000000)'dip 28
+    .AddChk 205,355,190,Array("Attract features",&H20000000)'dip 30
+    .AddLabel 50,380,300,20,"After hitting OK, press F3 to reset game with new settings."
+  End With
+  Dim extra
+  extra = Controller.Dip(4) + Controller.Dip(5)*256
+  extra = vpmDips.ViewDipsExtra(extra)
+  Controller.Dip(4) = extra And 255
+  Controller.Dip(5) = (extra And 65280)\256 And 255
+End Sub
+Set vpmShowDips = GetRef("editDips")
+
+

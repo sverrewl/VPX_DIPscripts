@@ -1,0 +1,28 @@
+'Bally GoldBall alternate version
+'Added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"GoldBall alternate - DIP switches"
+    .AddChk 7,10,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,10,115,Array("Credits display",&H04000000)'dip 27
+    .AddFrame 2,30,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 2,106,190,"P-L-A-Y lane lites adjust",&H00000020,Array("lites are reset",0,"lites held in memory",&H00000020)'dip 6
+    .AddFrame 2,152,190,"P-L-A-Y lane extra ball && special adjust",&H00000040,Array("lites are reset",0,"lites held in memory",&H00000040)'dip 7
+    .AddFrame 2,198,190,"Bonus lites adjust",&H00000080,Array("lites are reset",0,"lites held in memory",&H00000080)'dip 8
+    .AddFrame 2,248,190,"Gold ball playing percentage",57344,Array("skill based",0,"3%",&H00002000,"5%",&H00004000,"7%",&H00006000,"9%",32768,"11%",40960,"13%",49152,"15%",57344)'dip 14&15&16
+    .AddFrame 205,30,190,"Balls per game",&HC0000000,Array ("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,106,190,"Replay limit per game",&H10000000,Array("only 1 replay per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddFrame 205,152,190,"Gold ball special and 200K adjust",&H00200000,Array("goldball special will lite with 200K",0,"goldball 200K will lite then special",&H00200000)'dip 22
+    '.AddFrame 205,348,190,"When Gold ball comes out",&H00400000,Array("1 arrow flashes",0,"2 arrows flash",&H00400000)'dip 23
+    .AddFrame 205,198,190,"Goldball rollover special",&H00800000,Array("only during goldball play",0,"held over until collected",&H00800000)'dip 24
+    .AddFrame 205,248,190,"Game over attract",&H00100000,Array("no sounds",0,"make sounds every minute",&H00100000)'dip 21
+    .AddFrame 205,298,190,"2 or 4 player adjust",&H20000000,Array("game play for 2 player",0,"game play for 4 player",&H20000000)'dip 30
+    .AddLabel 25,400,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 25,420,350,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+
+

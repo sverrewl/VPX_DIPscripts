@@ -1,0 +1,26 @@
+'Bally Kings of steel
+'corrected by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 315,450,"Kings of Steel - DIP Switches"
+    .AddFrame 2,10,140,"Balls per game",&HC0000000,Array("2",&HC0000000,"3",0,"4",&H80000000,"5",&H40000000)'dip 31&32
+    .AddFrame 2,90,140,"Deuce special lights after",49152,Array("3X",49152,"4X",32768,"5X",&H00004000,"50,000",0)'dip 15&16
+    .AddFrame 2,170,300,"Three target spot sequence",&H00C00000,Array("20, 40, 60, 80, 100, 120, 140, 160, XB, 180, SP, 200",0,"20, 40, 60, 80, 100, 120, 140, XB, 160, SP, 180, 200",&H00400000,"20, 40, 60, 80, 100, 120, XB, 140, SP, 160, 180, 200",&H00800000,"20, 40, 60, 80, 100, XB, 120, 140, SP, 160, 180, 200",&H00C00000)'dip 23&24
+    .AddFrame 2,250,140,"Mini-straight special",&H00000080,Array("balls 1, 3, and 5",0, "all balls",&H00000080)'dip 8
+    .AddFrame 2,300,140,"4-7 Card special stored",&H00002000,Array("one per ball",0,"more than one saved",&H00002000)'dip 14
+    .AddFrame 2,350,140,"Free games awarded",&H10000000,Array("one per game",0,"unlimited",&H10000000)'dip 29
+    .AddChk 2,405,148,Array("Credits displayed",&H04000000)'dip 27
+    .AddFrame 160,10,140,"Maximum credits",&H03000000,Array("10",0,"15",&H01000000,"25",&H02000000,"40",&H03000000)'dip 25&26
+    .AddFrame 160,90,140,"Card special lights with",&H00300000,Array("80,000 points bonus",&H00300000,"160,000 points bonus",&H00200000,"240,000 points bonus",&H00100000,"320,000 points bonus",0)'dip 21&22
+    .AddFrame 160,250,140,"Card spot lights",&H20000000,Array("alternate",0,"always on",&H20000000)'dip 30
+    .AddFrame 160,300,140,"4-7 Card special",&H00000040,Array("remains lit",0,"goes out when rubber hit",&H00000040)'dip 7
+    .AddFrame 160,350,140,"Saucer special",&H00000020,Array("one per ball",0,"unlimited",&H00000020)'dip 6
+    .AddChk 160,405,148,Array("Match",&H08000000)'dip 28
+    .AddLabel 2,425,315,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 2,445,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

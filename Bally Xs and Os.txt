@@ -1,0 +1,42 @@
+'Bally Xs and Os
+'Corrected by Inkochnito
+
+Sub DipSwitchEditor()
+dim vpmDips, i, settings(3)
+
+  'Save the settings I don't have code for
+  for i = 0 to 3
+    settings(i) = Controller.dip(i) and saveDips(i)
+  next
+
+  on error resume next
+  set vpmDips = new cvpmDips
+  with vpmDips
+    .AddForm 700,400,"X's & O's DIP Switch Settings"
+    .AddFrame 0,0,395,"Skill shot sequence",49152,Array("100K, 200K, special, repeat 200K",0,"100K, 200K, special, repeat all",&H00004000,"100K, 200K, special, repeat 200K, special",32768,"100K, 200K, special, repeat special",49152)'dip 15&16
+    .AddFrame 0,76,395,"Time for skill shot",&H000000C0,Array("10 seconds for all",0,"15 seconds for all",&H00000040,"20 sec. for 100K, 15 sec. for 200K, 10 sec. for special",&H00000080,"30 sec. for 100K, 20 sec. for 200K, 10 sec. for special",&H000000C0)'dip 7&8
+    .AddFrame 0,152,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 0,228,190,"Replay limit",&H10000000,Array("1 replay per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddFrame 205,152,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 205,228,190,"Drop target && upper left lane special",&H00600000,Array("after completing drop targets 6X",0,"after completing drop targets 5X",&H00200000,"after completing drop targets 4X",&H00400000,"after completing drop targets 3X",&H00600000)'dip 22&23
+    .AddFrame 205,304,190,"Card special lights at",&H00002000,Array("270K bonus (3X card complete)",0,"180K bonus (2X card complete)",&H00002000)'dip 14
+    .AddFrame 205,350,190,"Lines needed to light extra ball",&H00100000,Array("2 lines",0,"3 lines",&H00100000)'dip 21
+    .AddChk 0,280,150,Array("Credit displayed",&H04000000)'dip 27
+    .AddChk 0,300,150,Array("Match",&H08000000)'dip 28
+    .AddChk 0,320,150,Array("Yellow arrow light on",&H00800000)'dip 24 left lane
+    .AddChk 0,340,150,Array("Attact sound",&H20000000)'dip 30
+    .AddChk 0,360,150,Array("Award replay for completing card",&H00000020)'dip 6
+    .AddLabel 50,400,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,420,300,20,"Set selftest position 20 to 04 (number of TIC-TAC-TOE lights lit)"
+    .AddLabel 50,440,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  end with
+  if Err then DipSwitchDisplayError
+  on error goto 0
+
+  'Restore non-coded settings
+  for i = 0 to 3
+    Controller.dip(i) = settings(i) or ((255-saveDips(i)) and Controller.dip(i))
+  next
+End Sub
+

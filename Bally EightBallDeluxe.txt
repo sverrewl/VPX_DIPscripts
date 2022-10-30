@@ -1,0 +1,30 @@
+'Bally EightBallDeluxe
+'corrected by Inkochnito
+
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 315,450,"Eight Ball Deluxe - DIP switches"
+    .AddFrame 2,10,140,"Balls per game",&HC0000000,Array("2",&HC0000000,"3",0,"4",&H80000000,"5",&H40000000)'dip 31&32
+    .AddFrame 2,90,140,"C && D lanes are",&H00000040,Array("separate",0,"linked",&H00000040)'dip 7
+    .AddFrame 2,140,140,"Saucer collects bonus",32768,Array("without multiplier",0,"with multiplier",32768)'dip 16
+    .AddFrame 2,190,140,"Replays awarded per game",&H10000000,Array("1 per player per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddFrame 2,240,140,"Backbox Deluxe advances",&H00200000,Array("when special is lit",0,"every time",&H00200000)'dip 22
+    .AddFrame 2,290,298,"Left lane score sequence",&H00002000,Array("no lite, 10K, 30K, 50K, X-ball, 70K, special, 70K stays on",&H00002000,"1st ball - no special lite, next ball - no extra ball lite",0)'dip 14
+    .AddChk 7,345,190,Array("Drop targets not reset after Deluxe",&H00400000)'dip 23
+    .AddChk 7,365,160,Array("Playfield Deluxe memory",&H00100000)'dip 21
+    .AddChk 7,385,160,Array("Voice on during attact mode",&H20000000)'dip 30
+    .AddFrame 160,10,140,"Maximum credits",&H03000000,Array("10",0,"15",&H01000000,"25",&H02000000,"40",&H03000000)'dip 25&26
+    .AddFrame 160,90,140,"Making A-B-C-D spots",&H00000080,Array("1 target",0,"2 targets",&H00000080)'dip 8
+    .AddFrame 160,140,140,"Target && Deluxe specials",&H00000020,Array("alternates with 50K",0,"scores only once per ball",&H00000020)'dip 6
+    .AddFrame 160,190,140,"Eight Ball scores special on",&H00004000,Array("third time",0,"second and third time",&H00004000)'dip 15
+    .AddFrame 160,240,140,"Deluxe special scored",&H00800000,Array("before 50K",0,"after 50K",&H00800000)'dip 24
+    .AddChk 210,345,90,Array("Credit display",&H04000000)'dip 27
+    .AddChk 210,365,90,Array("Match",&H08000000)'dip 28
+    .AddLabel 7,410,308,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 7,430,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

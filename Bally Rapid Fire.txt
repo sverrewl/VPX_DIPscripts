@@ -1,0 +1,18 @@
+'Bally Rapid Fire
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Rapid Fire - DIP switches"
+    .AddFrame 2,0,135,"Threshold cannon awards",&H00006000,Array("1 laser cannon",0,"2 laser cannons",&H00002000,"3 laser cannons",&H00004000,"4 laser cannons",&H00006000)'dip 14&15
+    .AddFrame 2,76,135,"Panic button adjustment",&H00000020,Array("1 panic button",0,"2 panic buttons",&H00000020)'dip 6
+    .AddFrame 2,122,135,"Laser cannon adjustment",&H00000040,Array("2 laser cannons",0,"4 laser cannons",&H00000040)'dip 7
+    .AddChk   2,175,115,Array("Credits displayed",&H04000000)'dip 27
+    .AddFrame 155,0,230,"Bases per game",&HC0000000,Array("1 base",&H40000000,"2 bases",0,"3 bases",&H80000000,"4 bases",&HC0000000)'dip 31&32
+    .AddFrame 155,76,230,"Forcefield laser cannon switch",&H00000080,Array("stops shot and player loses 1 laser cannon",0,"stops shot",&H00000080)'dip 8
+    .AddFrame 155,122,230,"Knocking out sets of invaders will",32768,Array("not recall for next base",0,"recall each set knocked out for next base",32768)'dip 16
+    .AddLabel 50,200,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

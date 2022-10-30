@@ -1,0 +1,24 @@
+'Atari Airborne Avenger
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,440,"Airborne Avenger - DIP switches"
+    .AddFrame 0,5,190,"Coins per credit",&H000000C3,Array("1 coin 1 credit",0,"1 coin 2 credits",&H00000002,"1 coin 3 credits",&H00000001,"1 coin 4 credits",&H00000003,"2 coins 1 credits",&H00000080)'SW2-3&SW2-4&SW2-5&SW2-6 (dip 2&1&8&7)
+    .AddFrame 0,95,190,"Maximum credits",49152,Array("8 credits",0,"12 credits",32768,"15 credits",&H00004000,"20 credits",49152)'SW1-5&SW1-6 (dip 16&15)
+    .AddFrame 0,177,190,"Special reward",&H00000030,Array("20,000 points",&H00000030,"30,000 points",&H00000010,"extra ball",0,"replay",&H00000020)'SW2-7&SW2-8 (dip 6&5)
+    .AddFrame 0,253,190,"Balls per game",&H00000008,Array("5 balls",0,"3 balls",&H00000008)'SW2-1 (dip 4)
+    .AddFrame 210,5,200,"Score threshold level",&H000F0000,Array("50K-70K-90K or 210K-310K-410K",0,"90K-130K-170K or 250K-370K-490K",&H00040000,"130K-190K-250K or 290K-430K-570K",&H00080000,"170K-250K-330K or 330K-490K-650K",&H000C0000,"200K-300K-400K or 360K-540K-720K",&H000F0000)'rotary (dip 17&18&19&20)
+    .AddFrame 210,95,200,"High or low threshold scores",&H00000100,Array("low scores",0,"high scores",&H00000100)'SW1-4 (dip 9)
+    .AddFrame 210,143,200,"Threshold score reward",&H00003000,Array("nothing",0,"extra ball",&H00002000,"replay",&H00001000)'SW1-7&SW1-8 (dip 14&13)
+    .AddFrame 210,205,200,"Spellout reward",&H00000400,Array("extra ball",0,"20,000 points",&H00000400)'SW1-2 (dip 11)
+    .AddFrame 210,253,200,"Last ball bonus setting",&H00000200,Array("single bonus",0,"double bonus",&H00000200)'SW1-3 (dip 10)
+    .AddChk 210,310,190,Array("Diagnostic mode (must be off)",&H00000800)'SW1-1 (dip 12)
+    .AddChk 0,310,190,Array("Match feature",&H00000004)'SW2-2 (dip 3)
+    .AddLabel 50,330,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")
+
+

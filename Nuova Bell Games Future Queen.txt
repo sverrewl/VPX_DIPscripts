@@ -1,0 +1,27 @@
+'Nuova Bell Games Future Queen
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Future Queen - DIP switches"
+    .AddFrame 0,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 0,76,190,"Power Zone special is lit",&H00000020,Array("with 500,000 points",0,"after 500,000 points",&H00000020)'dip 6
+    .AddFrame 0,122,190,"Power Zone bonus regulation",&H000000C0,Array("unlit",0,"100,000 points lit",&H00000040,"200,000 points lit",&H00000080)'dip 7&8
+    .AddFrame 0,182,190,"Bonus FUTURE QUEEN lit",&H00006000,Array("with 70,000 points",0,"with 105,000 points",&H00002000,"with 140,000 points",&H00004000,"after 140,000 points",&H00006000)'dip 14&15
+    .AddChk 0,310,190,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,310,190,Array("Credits display",&H04000000)'dip 27
+    .AddFrame 205,0,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,76,190,"FUTURE QUEEN letters memory",&H00100000,Array("reset every ball",0,"keep in memory",&H00100000)'dip 21
+    .AddFrame 205,122,190,"Power Zone lit buttons memory",&H00400000,Array("reset every ball",0,"keep in memory",&H00400000)'dip 23
+    .AddFrame 205,168,190,"FUTURE QUEEN bonus memory",&H00800000,Array("reset every ball",0,"keep in memory",&H00800000)'dip 24
+    .AddFrame 205,214,190,"Game over attract",32768,Array("Off",0,"On",32768)'dip 16
+    .AddFrame 205,260,190,"Replay adjustment",&H10000000,Array("only one replay per game",0,"all replays awarded",&H10000000)'dip 29
+    .AddFrame 0,260,190,"Kick Back && Turbo Light Speed adjust",&H20000000,Array("25,000 points && 1 FUTURE letter",0,"alternate",&H20000000)'dip 30
+    .AddLabel 50,330,300,20,"Set selftest position 16, 17 and 19 to 03 for the best gameplay."
+    .AddLabel 50,350,349,20,"Selftest position 18 regulates the Lucky Future percentage (see manual)."
+    .AddLabel 50,370,300,20,"Consolation Extra Ball if score is less than 200,000 points."
+    .AddLabel 50,390,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

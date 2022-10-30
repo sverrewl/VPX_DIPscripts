@@ -1,0 +1,28 @@
+'Bally Vector (modified rules)
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Vector (modified rules) - DIP switches"
+    .AddChk 7,10,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,10,115,Array("Credits display",&H04000000)'dip 27
+    .AddFrame 2,30,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"free play (40 credits)",&H03000000)'dip 25&26
+    .AddFrame 2,106,190,"Making 3 upper left targets will",&H00000020,Array("reset 3 lower targets",0,"not reset 3 lower targets",&H00000020)'dip 6
+    .AddFrame 2,152,190,"Multipiers lite will",&H00000040,Array("be off then alternate",0,"stay on till bonus lites are made",&H00000040)'dip 7
+    .AddFrame 2,198,190,"X-Y-Z drop targets special",&H00000080,Array("25K - special - 25K",0,"25K - special keeps alternating",&H00000080)'dip 8
+    .AddFrame 2,248,190,"Vectorscan to date readout",&H00002000,Array("can only be decreased manually",0,"after 8 games decrease by 20K",&H00002000)'dip 14
+    .AddFrame 2,298,190,"With Vectorscan capture lite on",&H00004000,Array("3 lower targets will reset",0,"3 lower targets will go back down",&H00004000)'dip 15
+    .AddFrame 2,348,190,"With Vectorscan capture lite off",32768,Array("targets down will reset",0,"any target down will go back down",32768)'dip 16
+    .AddFrame 205,30,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,106,190,"Vectorscan bonus score readout",&H00100000,Array("readout will reset to 1",0,"readout will come back on",&H00100000)'dip 21
+    .AddFrame 205,152,190,"Attract sound",&H00200000,Array("no voice",0,"voice says 'I am P.A.C. play analysis",&H00200000)'dip 22
+    .AddFrame 205,198,190,"Vectorscan scoring adjust",&H00400000,Array("scores only when capture lite is on",0,"scores when capture lite is on or off",&H00400000)'dip 23
+    .AddFrame 205,248,190,"Lite special and extra ball when",&H00800000,Array("hitting vector speed 800 or over",0,"hitting vector speed 750 or over",&H00800000)'dip 24
+    .AddFrame 205,298,190,"Replay limit",&H10000000,Array("no limit",0,"1 replay per game",&H10000000)'dip 29
+    .AddFrame 205,348,190,"H-Y-P-E target bonus adjust",&H20000000,Array("advances bonus only when lit",0,"advances bonus every time",&H20000000)'dip 30
+    .AddLabel 50,400,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,420,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

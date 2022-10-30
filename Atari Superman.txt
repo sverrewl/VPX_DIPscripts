@@ -1,0 +1,22 @@
+'Atari Superman
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Superman - DIP switches"
+    .AddFrame 2,10,190,"Hi score to date award",&HC0000000,Array("1 credit",0,"2 credits",&HC0000000,"3 credits",&H40000000)'dip 31&32
+    .AddFrame 2,73,190,"Extra ball award",&H00000300,Array("30,000 points",0,"20,000 points",&H00000200,"extra ball",&H00000300)'dip 9&10
+    .AddFrame 2,136,190,"Special award",&H00000410,Array("50,000 points",0,"extra ball",&H00000010,"replay",&H00000410)'dip 5&11
+    .AddFrame 210,10,190,"Maximum credits",&H00000007,Array("10 credits",&H00000006,"15 credits",&H00000005,"25 credits",&H00000003,"40 credits",0)'dip 1&2&3
+    .AddFrame 210,86,190,"Balls per game",&H00000008,Array("5 balls",0,"3 balls",&H00000008)'dip 4
+    .AddFrame 210,133,190,"SUPERMAN spellout award",&H00000800,Array("30,000 points",0,"50,000 points",&H00000800)'dip 12
+    .AddChk 2,200,190,Array("Hi score displayed",&H00800000)'dip 24
+    .AddChk 2,215,190,Array("Match feature",&H00000080)'dip 8
+    .AddChk 210,185,190,Array("Free Play",&H00000020)'dip 6
+    .AddChk 210,200,190,Array("Keep alive feature",32768)'dip 16
+    .AddChk 210,215,190,Array("Million limit must be on",&H00400000)'dip 23
+    .AddLabel 50,235,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

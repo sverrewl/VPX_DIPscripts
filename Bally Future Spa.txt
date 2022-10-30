@@ -1,0 +1,23 @@
+'Bally Future Spa
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Future Spa - DIP switches"
+    .AddChk 7,10,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,10,115,Array("Credits displayed",&H04000000)'dip 27
+    .AddFrame 2,30,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 2,106,190,"Sound features",&H30000000,Array("chime effects",0,"noises and no background",&H10000000,"noise effects",&H20000000,"noises and background",&H30000000)'dip 29&30
+    .AddFrame 2,184,190,"High score feature",&H00000060,Array("no award",0,"extra ball",&H00000040,"replay",&H00000060)'dip 6&7
+    .AddFrame 2,244,190,"Top green && yellow arrow adjustment",32768,Array("F-U-T-U-R-E lite one at a time",0,"U-T-U-R lite together",32768)'dip 16
+    .AddFrame 205,30,190,"High score to date",&H00300000,Array("no award",0,"1 credit",&H00100000,"2 credits",&H00200000,"3 credits",&H00300000)'dip 21&22
+    .AddFrame 205,106,190,"Balls per game",&H40000000,Array("3 balls",0,"5 balls",&H40000000)'dip 31
+    .AddFrame 205,152,190,"Bumper lite adjusment",&H00000080,Array("1,000 lite comes on with SPA",0,"1,000 lite stays on",&H00000080)'dip 8
+    .AddFrame 205,198,190,"Kickback && drop target spotlite",&H00004000,Array("lights come on every 3rd time",0,"lights stay on",&H00004000)'dip 24
+    .AddFrame 205,244,190,"Drop target special can be collected",&H80000000,Array("only 1 time, then 20K lites",0,"more than 1 time",&H80000000)'dip 32
+    .AddLabel 50,310,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

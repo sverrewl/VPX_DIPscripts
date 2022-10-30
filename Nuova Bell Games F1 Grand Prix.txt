@@ -1,0 +1,27 @@
+'added by Inkochnito
+'Nuova Bell Games - F1 Grand Prix
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"F1 Grand Prix - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits", &H01000000,"25 credits", &H02000000,"40 credits", &H03000000)'dip 25&26
+    .AddFrame 2,76,190,"Number of replays per game",&H10000000,Array("Only 1 replay per player per game",0,"All replays earned will be collected",&H10000000)'dip 29
+    .AddFrame 2,122,190,"Auto-percentage control",&H20000000,Array("disabled (normal high score mode)",0,"enabled",&H20000000)'dip 30
+    .AddFrame 205,0,190,"Balls per game",&HC0000000,Array ("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,76,190,"FORMULA ONE lights movement",&H04000000,Array("move with flippers",0,"move with bumpers and flippers",&H04000000)'dip 27
+    .AddFrame 205,122,190,"Complete the BOX to light Fast Lap",&H00002000,Array("2 times",0,"1 time",&H00002000)'dip 14
+    .AddChk 2,175,190,Array("BOX memory",&H00000080)'dip 8
+    .AddChk 2,190,190,Array("Bonus BOX memory",&H00400000)'dip 23
+    .AddChk 2,205,300,Array("Ramp 250K, double score, extra ball memory",&H00100000)'dip 21
+    .AddChk 2,220,190,Array("Bonus ramp memory",&H00800000)'dip 24
+    .AddChk 2,235,250,Array("Target bank 100K, 200K,300K memory",&H00000020)'dip 6
+    .AddChk 2,250,190,Array("Bonus multiplier memory",&H00200000)'dip 22
+    .AddChk 2,265,190,Array("FORMULA ONE memory",&H00000040)'dip 7
+    .AddChk 2,280,190,Array("Match feature",&H08000000)'dip 28
+    .AddChk 2,295,190,Array("Game Over attract sound",32768)'dip 16
+'   .AddLabel 30,370,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 30,320,350,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

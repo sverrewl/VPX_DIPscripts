@@ -1,0 +1,27 @@
+'Gottlieb Big House
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm  700,400,"Big House - DIP switches"
+    .AddFrame 2,4,190,"Maximum credits",49152,Array("8 credits",0,"10 credits",32768,"15 credits",&H00004000,"20 credits",49152)'dip 15&16
+    .AddFrame 2,80,190,"Captive balls are",&H00002000,Array("returned after each ball",0,"retained at the end of each ball",&H00002000)'dip 14
+    .AddFrame 2,126,190,"Playfield special",&H00200000,Array("replay",0,"extra ball",&H00200000)'dip 22
+    .AddFrame 2,172,190,"High games to date control",&H00000020,Array("no effect",0,"reset high games 2-5 on power off",&H00000020)'dip 6
+    .AddFrame 2,218,190,"Auto-percentage control",&H00000080,Array("disabled (normal high score mode)",0,"enabled",&H00000080)'dip 8
+    .AddFrame 2,264,190,"'J-A-I-L' lamp control",&H40000000,Array("initialize 'J' flashing",0,"initialize 'J-A-I-L' from memory",&H40000000)'dip 31
+    .AddFrame 2,310,190,"Cell targets when hit",&H80000000,Array("go from lit to off",0,"go from lit to flashing to off",&H80000000)'dip 32
+    .AddFrame 205,4,190,"High game to date awards",&H00C00000,Array("not displayed and no award",0,"displayed and no award",&H00800000,"displayed and 2 replays",&H00400000,"displayed and 3 replays",&H00C00000)'dip 23&24
+    .AddFrame 205,80,190,"Balls per game",&H01000000,Array("5 balls",0,"3 balls",&H01000000)'dip 25
+    .AddFrame 205,126,190,"Replay limit",&H04000000,Array("no limit",0,"one per ball",&H04000000)'dip 27
+    .AddFrame 205,172,190,"Novelty",&H08000000,Array("normal",0,"extra ball and replay scores 500K",&H08000000)'dip 28
+    .AddFrame 205,218,190,"Game mode",&H10000000,Array("replay",0,"extra ball",&H10000000)'dip 29
+    .AddFrame 205,264,190,"3rd coin chute credits control",&H20000000,Array("no effect",0,"add 9",&H20000000)'dip 30
+    .AddChk 205,316,180,Array("Match feature",&H02000000)'dip 26
+    .AddChk 205,331,190,Array("Attract sound",&H00000040)'dip 7
+    .AddLabel 50,360,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

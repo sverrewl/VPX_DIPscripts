@@ -1,0 +1,23 @@
+'Bally Speak Easy
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Speak Easy - DIP switches"
+    .AddFrame 0,0,100,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 0,76,100,"Maximum balls",&H00006000,Array("6 balls",0,"7 balls",&H00002000,"8 balls",&H00004000,"9 balls",&H00006000)'dip 14&15
+    .AddFrame 0,152,100,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 115,0,250,"10 thru ace card special adjust",&H00600000,Array("special lites with 125 chip value",0,"special lites with 100 chip value",&H00400000,"special lites with 75 chip value",&H00600000)'dip 22&23
+    .AddFrame 115,61,250,"Top card 5 thru 9 sequence lite",&H00100000,Array("making 5 thru 9 only keeps lite on",0,"making 5 thru 9 or 9 thru 5 keeps lite on",&H00100000)'dip 21
+    .AddFrame 115,107,250,"Outlane special adjust",32768,Array("special lite goes out after being made",0,"special lite stays on after being made",32768)'dip 16
+    .AddFrame 115,153,250,"Replay limit",&H10000000,Array("1 replay per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddChk 115,200,190,Array("Match feature",&H08000000)'dip 28
+    .AddChk 115,215,190,Array("Credits displayed",&H04000000)'dip 27
+    .AddLabel 30,240,350,15,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,255,300,15,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+
+

@@ -1,0 +1,25 @@
+'Gameplan Andromeda
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Gameplan Andromeda - DIP switches"
+    .AddFrame 2,0,190,"Credits per coin",&H0000001F,Array("1 credit - 2 coins",&H000000031,"1 credit - 1 coin",&H00000002,"2 credits - 1 coin",&H00000004,"5 credits - 1 coin",&H0000000A)'dip 1-5
+    .AddFrame 2,76,190,"Maximum credits",&H06000000,Array("10 credits",0,"20 credits",&H02000000,"30 credits",&H04000000,"40 credits",&H06000000)'dip 26&27
+    .AddFrame 2,152,190,"High game to date award",&HC0000000,Array("no award",0,"1 credit",&H40000000,"2 credits",&H80000000,"3 credits",&HC0000000)'dip 31&32
+    .AddFrame 210,0,190,"Replay or free ball award",&H18000000,Array("no award",0,"50,000 points",&H08000000,"extra ball",&H10000000,"replay",&H18000000)'dip 28+29
+    .AddFrame 210,76,190,"Balls per game",&H00C00000,Array("1 ball",0,"2 balls",&H00400000,"3 balls",&H00800000,"5 balls",&H00C00000)'dip 23+24
+    .AddFrame 210,152,190,"Specials per game",&H00004000,Array("1 special only",0,"2 specials",&H00004000)'dip 15***
+    .AddFrame 210,198,190,"Spinner points",&H01000000,Array("start at 100 points",0,"start at 1,000 points",&H01000000)'dip 25***
+    .AddChk 2,235,150,Array("Extra ball control",32768)'dip 16***
+    .AddChk 2,250,150,Array("Match feature",&H20000000)'dip 30
+    .AddChk 2,265,150,Array("Free play",&H00000080)'dip 8
+    .AddChk 2,280,150,Array("Recall bonus multiplier",&H00000040)'dip 7***
+    .AddChk 210,250,150,Array("Recall extra ball lane",&H00001000)'dip 13***
+    .AddChk 210,265,150,Array("Recall spinner value",&H00200000)'dip 22***
+    .AddChk 210,280,150,Array("Enable extra ball",&H00002000)'dip 14
+    .AddLabel 30,320,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

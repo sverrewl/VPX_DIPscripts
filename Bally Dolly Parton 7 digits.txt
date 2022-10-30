@@ -1,0 +1,26 @@
+'Bally Dolly Parton 7 digits
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Dolly Parton 7 digits - DIP switches"
+    .AddFrame 2,2,190,"Hitting 4 drop targets",&H00800000,Array("lites extra ball",0,"lites extra ball and special",&H00800000)'dip 24
+    .AddFrame 2,48,190,"Hitting drop targets",&H00002000,Array("does not spot a letter",0,"spots lit saucer letter",&H00002000)'dip 14
+    .AddFrame 2,94,190,"Saucer 5000 && return lanes both on",&H00000080,Array("after making DOLLY PARTON",0,"at the start of the game",&H00000080)'dip 8
+    .AddFrame 2,140,190,"Making DOLLY PARTON lites",32768,Array("left special",0,"both specials",32768)'dip 16
+    .AddFrame 2,186,190,"2X, 3X or 5X lit bonus will",&H00400000,Array ("not be recalled for next ball",0,"be recalled for next ball",&H00400000)'dip 23
+    .AddFrame 2,232,190,"Sound features",&H30000000,Array("chime effects",0,"noises",&H10000000,"chime effects and some noises",&H20000000,"chime effects and noises",&H30000000)'dip 29&30
+    .AddFrame 2,306,190,"High score feature",&H00000060,Array("no award",0,"extra Ball",&H00000040,"replay",&H00000060)'dip 6&7
+    .AddFrame 205,2,190,"High score to date",&H00200000,Array("no award",0,"3 credits",&H00200000)'dip 22
+    .AddFrame 205,48,190,"Score version",&H00100000,Array("6 digit scoring",0,"7 digit scoring",&H00100000)'dip 21
+    .AddFrame 205,94,190,"Balls per game",&H40000000,Array("3 balls",0,"5 balls",&H40000000)'dip 31
+    .AddFrame 205,140,190,"Outlane special",&H00004000,Array("not in memory",0,"in memory",&H00004000)'dip 15
+    .AddFrame 205,186,190,"Outlane special adjustment",&H80000000,Array("making 44000 lites right special",0,"making 22000 lites left special",&H80000000)'dip 32
+    .AddFrame 205,232,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"free play (40 credits)",&H03000000)'dip 25&26
+    .AddChk 205,320,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,340,115,Array("Credits displayed",&H04000000)'dip 27
+    .AddLabel 50,370,340,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

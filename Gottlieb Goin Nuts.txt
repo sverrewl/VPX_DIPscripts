@@ -1,0 +1,30 @@
+'Gottlieb Goin Nuts
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Goin' Nuts - DIP switches"
+    .AddFrame 2,2,190,"Maximum credits",49152,Array("8 credits",0,"10 credits",32768,"15 credits",&H00004000,"20 credits",49152)'dip 15&16
+    .AddFrame 2,80,190,"Coin chute 1 and 2 control",&H00002000,Array("seperate",0,"same",&H00002000)'dip 14
+    .AddFrame 2,126,190,"Playfield special",&H00200000,Array("replay",0,"extra ball",&H00200000)'dip 22
+    .AddFrame 2,172,190,"Game mode",&H10000000,Array("replay",0,"extra ball",&H10000000)'dip 29
+    .AddFrame 2,218,190,"Award for sequence completion",&H80000000,Array("extra ball",0,"special",&H40000000)'dip 32
+    .AddFrame 205,2,190,"High score to date awards",&H00C00000,Array("not displayed and no award",0,"displayed and no award",&H00800000,"displayed and 2 replays",&H00400000,"displayed and 3 replays",&H00C00000)'dip 23&24
+    .AddFrame 205,80,190,"Balls per game",&H01000000,Array("5 balls",0,"3 balls",&H01000000)'dip 25
+    .AddFrame 205,126,190,"Replay limit",&H04000000,Array("no limit",0,"one per ball",&H04000000)'dip 27
+    .AddFrame 205,172,190,"Novelty mode",&H08000000,Array("normal game mode",0,"50K per special/extra ball",&H08000000)'dip 28
+    .AddFrame 205,218,190,"3rd coin chute credits control",&H20000000,Array("no effect",0,"add 9",&H20000000)'dip 30
+    .AddFrameExtra 205,264,190,"SS-dip 3&&4 Attract Sound",&H000C,Array("off",0,"every 10 seconds",&H0004,"every 2 minutes",&H0008,"every 4 minutes",&H000C)'SS-board dip 3&4
+    .AddChk 2,273,190,Array("Match feature",&H02000000)'dip 26
+    .AddChkExtra 2,288,190,Array("SS-dip 5 Background sound",&H0010)'SS-board dip 5
+    .AddChkExtra 2,303,190,Array("SS-dip 6 Speech",&H0020)'SS-board dip 6
+    .AddChkExtra 2,318,190,Array("SS-dip 7 Extra sound option",&H0040)'SS-board dip 7
+    .AddLabel 50,340,300,20,"After hitting OK, press F3 to reset game with new settings."
+  End With
+  Dim extra
+  extra=Controller.Dip(4)+Controller.Dip(5)*256
+  extra=vpmDips.ViewDipsExtra(extra)
+  Controller.Dip(4)=extra And 255
+  Controller.Dip(5)=(extra And 65280)\256 And 255
+End Sub
+Set vpmShowDips=GetRef("editDips")

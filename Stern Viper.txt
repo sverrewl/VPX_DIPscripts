@@ -1,0 +1,25 @@
+'Stern Viper
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Viper - DIP switches"
+    .AddFrame 0,0,190,"Maximum credits",&H00060000,Array("10 credits",0,"15 credits",&H00020000,"25 credits",&H00040000,"40 credits",&H00060000)'dip 18&19
+    .AddFrame 0,78,190,"High game to date",49152,Array("points",0,"1 free game",&H00004000,"2 free games",32768,"3 free games",49152)'dip 15&16
+    .AddFrame 0,156,190,"Special award",&HC0000000,Array("no award",0,"100.000 points",&H40000000,"free ball",&H80000000,"free game",&HC0000000)'dip 31&32
+    .AddChk 0,240,180,Array("Match feature",&H00100000)'dip 21
+    .AddChk 0,255,180,Array("Credits displayed",&H00080000)'dip 20
+    .AddChk 0,270,195,Array("Add-a-ball feature on or off",&H00002000)'dip 14
+    .AddChk 0,285,180,Array("Background sound",&H00000080)'dip 8
+    .AddFrame 205,0,190,"High score feature",&H00000020,Array("extra ball",0,"replay",&H00000020)'dip 6
+    .AddFrame 205,46,190,"Balls per game",&H00000040,Array("3 balls",0,"5 balls",&H00000040)'dip 7
+    .AddFrame 205,92,190,"Special limit",&H20000000,Array("1 per game",0,"1 per ball",&H20000000)'dip 30
+    .AddFrame 205,138,190,"Add-a-ball maximum",&H00001000,Array("3 balls",0,"5 balls",&H00001000)'dip 13
+    .AddFrame 205,184,190,"Extra ball adjust",&H00200000,Array("off",0,"on",&H00200000)'dip 22
+    .AddFrame 205,230,190,"Extra ball limit",&H00400000,Array("1 per game",0,"1 per ball",&H00400000)'dip 23
+    .AddLabel 50,310,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

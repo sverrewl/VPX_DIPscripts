@@ -1,0 +1,28 @@
+'Stern Orbitor 1
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Orbitor 1 - DIP switches"
+    .AddFrame 0,0,190,"Maximum credits",&H00060000,Array("10 credits",0,"15 credits",&H00020000,"25 credits",&H00040000,"40 credits",&H00060000)'dip 18&1
+    .AddFrame 0,76,190,"High game to date",49152,Array("no free game",0,"1 free game",&H00004000,"2 free games",32768,"3 free games",49152)'dip 15&16
+    .AddFrame 0,152,190,"High score award",&H00000020,Array("extra ball",0,"replay",&H00000020)'dip 6
+    .AddFrame 0,198,190,"Special limit",&H20000000,Array("1 per ball",0,"1 per game",&H20000000)'dip 30
+    .AddFrame 0,244,190,"Balls per game",&H00000040,Array("3 balls",0,"5 balls",&H00000040)'dip 7
+    .AddChk 0,300,190,Array("Match feature",&H00100000)'dip 21
+    .AddChk 0,315,190,Array("Credits displayed",&H00080000)'dip 20
+    .AddFrame 205,0,190,"Green shoot again time",&H00003000,Array("90 seconds",0,"120 seconds",&H00001000,"150 seconds",&H00002000,"180 seconds",&H00003000)'dip 13&14
+    .AddFrame 205,76,190,"Special award",&HC0000000,Array("no award",0,"100.000 points",&H40000000,"extra ball",&H80000000,"replay",&HC0000000)'dip 31&32
+    .AddFrame 205,152,190,"Extra ball lites",&H00800000,Array("after 5X",0,"with 5X",&H00800000)'dip 24
+    .AddFrame 205,198,190,"Add-a-ball memory maximum",&H00200000,Array("5 balls",0,"3 balls",&H00200000)'dip 22
+    .AddChk 205,255,190,Array("100th game free credit",&H00000010)'dip 5
+    .AddChk 205,270,190,Array("Background sound",&H00000080)'dip 8
+    .AddChk 205,285,190,Array("Talking sound",&H00010000)'dip 17
+    .AddChk 205,300,190,Array("Reset multiplier every ball",&H10000000)'dip 29
+    .AddChk 205,315,190,Array("Add-a-ball feature",&H00400000)'dip 23
+    .AddLabel 50,340,300, 20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

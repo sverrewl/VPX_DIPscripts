@@ -1,0 +1,28 @@
+'Bally Grand Slam
+'Added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Grand Slam - DIP switches"
+    .AddChk 7,10,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,10,115,Array("Credits display",&H04000000)'dip 27
+    .AddFrame 2,30,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 2,106,190,"Single && double lites adjustment",&H00000020,Array("lites will alternate",0,"lites will be on",&H00000020)'dip 6
+    .AddFrame 2,152,190,"Flyway 25K lite adjustment",&H00000040,Array("25K off at the start of the game",0,"25K on at the start of the game",&H00000040)'dip 7
+    .AddFrame 2,198,190,"Runs to beat advance adjustment",&H00000080,Array("runs will stay on set up runs",0,"runs set up will step off by 10",&H00000080)'dip 8
+    .AddFrame 2,248,190,"Runs to beat set up adjustment",&H00700000,Array("55",0,"50",&H00100000,"45",&H00200000,"40",&H00300000,"35",&H00400000,"30",&H00500000,"25",&H00600000,"20",&H00700000)'dip 21,22,23
+    .AddFrame 205,30,190,"Balls per game",&HC0000000,Array ("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,106,190,"Replay limit per game",&H10000000,Array("only 1 replay per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddFrame 205,152,190,"Extra balls per game adjustment",&H00004000,Array("1 extra ball per game",0,"more than 1 extra ball per game",&H00004000)'dip 15
+    .AddFrame 205,198,190,"Flyaway value lites memory",32768,Array("reset every ball",0,"kept in memory for next ball",32768)'dip 16
+    .AddFrame 205,248,190,"S && L return lane lites adjustment",&H00800000,Array("lites are seperate",0,"lites are tied together",&H00800000)'dip 24
+    .AddFrame 205,298,190,"Flyaway special adjustment",&H00002000,Array("1st special then 50K stays on",0,"special and 50K keep alternating",&H00002000)'dip 14
+    .AddFrame 205,348,190,"Outhole bonus score per run adjust",&H20000000,Array("10K for each run scored",0,"5K for each run scored",&H20000000)'dip 30
+    .AddLabel 25,400,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 25,420,350,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+
+

@@ -1,0 +1,29 @@
+'Bally Flash Gordon
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Flash Gordon - DIP switches"
+    .AddFrame 0,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 0,76,190,"Balls per game",&HC0000000,Array ("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 0,152,190,"Saucer 10K adjust",&H00000020,Array("10K is off at start of game",0,"10K is on at start of game",&H00000020)'dip 6
+    .AddFrame 0,198,190,"Special limit",&H10000000,Array("1 replay per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddFrame 0,244,190,"Extra ball limit",&H20000000,Array("1 extra ball per game",0,"1 extra ball per ball",&H20000000)'dip 30
+    .AddChk 205,0,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,20,115,Array("Credits displayed",&H04000000)'dip 27
+    .AddChk 205,40,190,Array("Saucer value in memory",&H00000040)'dip 7
+    .AddChk 205,60,190,Array("Saucer 2X, 3X arrow in memory",&H00000080)'dip 8
+    .AddChk 205,80,190,Array("Outlane special in memory",&H00002000)'dip 14
+    .AddChk 205,100,190,Array("Top target special in memory",&H00004000)'dip 15
+    .AddChk 205,120,190,Array("Bonus multiplier in memory",32768)'dip 16
+    .AddChk 205,140,250,Array("Game over attract says 'Emperor Ming awaits'",&H00100000)'dip 21
+    .AddChk 205,160,250,Array("2 Side targets && flipper feed lane memory",&H00200000)'dip 22
+    .AddChk 205,180,190,Array("4 Drop target bank in memory",&H00400000)'dip 23
+    .AddChk 205,200,190,Array("Top 3 target arrows in memory",&H00800000)'dip 24
+    .AddLabel 40,300,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,320,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

@@ -1,0 +1,24 @@
+'Bally Baby Pacman
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Baby Pacman - DIP switches"
+    .AddFrame 2,0,190,"Any center lites on will",&H00000020,Array("be reset for next Pac-Man",0,"come back on for next Pac-Man",&H00000020)'dip 6
+    .AddFrame 2,46,190,"Pac maze cherry",&H00000040,Array("no cherry at start of maze",0,"cherry will show on maze",&H00000040)'dip 7
+    .AddFrame 2,92,190,"Pac maze side tunnels",&H00000080,Array("gates are closed at start of maze",0,"gates are open at start of maze",&H00000080)'dip 8
+    .AddFrame 2,138,190,"After 3 ball ejects and no score",&H00002000,Array("the maze will lite",0,"ball is still in play",&H00002000)'dip 14
+    .AddFrame 2,184,190,"Any energizers on will",49152,Array ("be reset for next Pac-Man",0,"come back on for next Pac-Man",&H00004000)'dip 15
+    .AddFrame 205,0,190,"Pac-men per game",&HC0000000,Array ("2 Pac-men",&HC0000000,"3 Pac-men",0,"4 Pac-men",&H80000000,"5 Pac-men",&H40000000)'dip 31&32
+    .AddFrame 205,78,190,"Maze special awarded after",&H00600000,Array("completing 3 mazes",0,"completing 4 mazes",&H00200000,"completing 5 mazes",&H00600000)'dip 22&23
+    .AddFrame 205,138,190,"Playfield/video (trouble shooting only)",32768,Array("playfield will operate with video",0,"playfield will operate only",32768)'dip 16
+    .AddFrame 205,184,190,"Any center arrows on will",&H00800000,Array("go out for next ball in outhole",0,"stay on for next ball in outhole",&H00800000)'dip 24
+    .AddChk 2,240,120,Array("Credits displayed",&H04000000)'dip 27
+    .AddChk 205,240,120,Array("Free play",&H20000000)'dip 30
+    .AddLabel 20,260,380,20,"Set selftest 'High score mode' and 'Special mode' to 03 for the best gameplay."
+    .AddLabel 50,280,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

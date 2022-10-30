@@ -1,0 +1,26 @@
+'Bally Strikes and spares
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Strikes and spares - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H00070000,Array("10 credits",&H00010000,"20 credits",&H00030000,"30 credits",&H00050000,"40 credits",&H00070000)'dip 17&18&19
+    .AddFrame 2,79,190,"High game to date award",&H00000060,Array("no award",0,"1 credit",&H00000020,"2 credits",&H00000040,"3 credits",&H00000060)'dip 6&7
+    .AddFrame 2,153,190,"Multiplier adjust",&H2000000,Array("2X, 3X, 5X, 5K, special",0,"2X, 3X, 5X, 5K && special, special",&H20000000)'dip 30
+    .AddFrame 2,199,190,"Automatic strike center lane",&H40000000,Array("lite is alternates",0,"lite is on all the time",&H40000000)'dip 31
+    .AddFrame 205,0,190,"Balls per game",32768,Array("3 balls",0,"5 balls",32768)'dip 16
+    .AddFrame 205,46,190,"High score feature",&H00006000,Array("no award",0,"extra ball",&H00004000,"replay",&H00006000)'dip 14&15
+    .AddFrame 205,107,190,"Extra ball lite return lane",&H00800000,Array("alternating",0,"both on",&H00800000)'dip 24
+    .AddFrame 205,153,190,"Outlane special",&H80000000,Array("alternating",0,"both on",&h80000000)'dip 32
+    .AddFrame 205,199,190,"Pin adjust",&H10000000,Array("all seperate",0,"1&&3, 2&&5, 8&&9 are tied",&H10000000)'dip 29
+    .AddChk 2,250,120,Array("Match",&H00100000)'dip 21
+    .AddChk 2,265,120,Array("Credits displayed",&H00080000)'dip 20
+    .AddChk 2,280,120,Array("Melody option",&H00000080)'dip 8
+    .AddChk 205,250,150,Array("Bonus multiplier memory",&H00200000)'dip 22
+    .AddChk 205,265,150,Array("Start strike value at 5K",&H00400000)'dip 23
+    .AddLabel 50,300,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

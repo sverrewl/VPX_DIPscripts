@@ -1,0 +1,25 @@
+'Bally Skateball
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Skateball - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 2,74,190,"Hitting drop targets",&H00000040,Array("does not advance bonus",0,"advences bonus 1 step",&H00000040)'dip 7
+    .AddFrame 2,120,190,"50K && saucer extra ball lite",32768,Array("50K then extra ball",0,"50K && extra ball together",32768)'dip 16
+    .AddFrame 205,0,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,74,190,"Saucer extra ball && outlane special",&H00800000,Array("first extra ball then outlane special",0,"extra ball && outlane special together",&H00800000)'dip 24
+    .AddFrame 205,120,190,"Lighting A-B && S-K-A-T-E will",&H20000000,Array("not lite saucer extra ball",0,"lite saucer extra ball",&H20000000)'dip 30
+    .AddChk 2,170,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 2,185,115,Array("Credits displayed",&H04000000)'dip 27
+    .AddChk 2,200,190,Array("Top drop targets memory",&H00000080)'dip 8
+    .AddChk 205,170,190,Array("Center drop targets arrows memory",&H00002000)'dip 14
+    .AddChk 205,185,190,Array("Top drop targets arrows memory",&H00004000)'dip 15
+    .AddChk 205,200,190,Array("Bonus multiplier memory",&H00400000)'dip 23
+    .AddLabel 50,230,320,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,250,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

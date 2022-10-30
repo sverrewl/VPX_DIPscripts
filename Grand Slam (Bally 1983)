@@ -30,16 +30,16 @@ Sub editDips
 End Sub
 
 Set vpmShowDips = GetRef("editDips")
-'High Score feature :  
+'High Score feature :
 'Self test position: 16 - 17
-'Reply               3    3 
+'Reply               3    3
 'Extra ball          2    2
-'Novelty             1    1 
+'Novelty             1    1
 'No award            0    0
 
-'High Score to date :  
-'Self test position:  19 
-'No Award             0 
+'High Score to date :
+'Self test position:  19
+'No Award             0
 'One Credit           1
 'Two credits          2
 'Three Credits        3

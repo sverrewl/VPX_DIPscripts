@@ -1,0 +1,21 @@
+'Spinball Jolly Park
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Jolly Park - DIP switches"
+          .AddFrame 0,0,190,"Replay threshold",&H000000C0,Array("300 million points",0,"400 million points",&H00000080,"500 million points",&H00000040,"600 million points", &H000000C0)'SL1-5&6(Dip 8,7)
+    .AddFrame 0,76,190,"Handicap value",&H00000300,Array("700 million points",0,"750 million points",&H00000100,"800 million points",&H00000200,"850 million points",&H00000300)'SL2-3&4(dip 10,9)
+    .AddFrame 0,152,190,"Credits per coin",&H0000000F,Array("1 coin - 1 credit && 1 coin - 3 credits",&H00000005,"1 coin - 1 credit && 1 coin - 5 credits",&H00000003,"1 coin - 1 credit && 1 coin - 6 credits",&H00000007,"1 coin - 2 credits && 1 coin - 5 credits",&H0000000F)'SL1-4,3,2,1(Dip 1-4)
+    .AddFrame 0,228,190,"Game Mode",&H00000010,Array("normal",0,"exhibition",&H00000010)'SL1-8(dip 5)
+    .AddChk 0,280,190,Array("Automatic points adjust enable",&H00080000)'SL3-1(dip 20)
+    .AddFrame 205,0,190,"New ticket time interval",49152,Array("disabled",0,"short",32768,"medium",&H00004000,"long",49152)'SL2-5&6(dip 16,15)
+    .AddFrame 205,76,190,"Repeat time for multiball",&H00C00000,Array("disabled",0,"short",&H00800000,"medium",&H00400000,"long",&H00C00000)'SL3-5&6(dip 24&23)
+    .AddFrame 205,152,190,"Loopings needed for extra ball",&H00030000,Array("points (no extra ball)",0,"1 looping",&H00010000,"2 loopings",&H00020000,"3 loopings",&H00030000)'SL3-3&4(dip 18&17)
+        .AddFrame 205,228,190,"Balls per game",&H0000800,Array("3 balls",0,"5 balls",&H00000800)'SL2-1(dip 12)
+    .AddFrame 205,274,190,"Special option",&H00200000,Array("easy",0,"difficult",&H00200000)'SL3-7(dip 22)
+      .AddLabel 50,350,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

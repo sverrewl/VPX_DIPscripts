@@ -1,0 +1,27 @@
+'Gameplan Cyclopes
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Cyclopes - DIP switches"
+    .AddFrame 2,0,190,"Credits per coin",&H0000001F,Array("1 credit - 2 coins",&H000000031,"1 credit - 1 coin",&H00000002,"2 credits - 1 coin",&H00000004,"5 credits - 1 coin",&H0000000A)'dip 1-5
+    .AddFrame 2,75,190,"Maximum credits",&H06000000,Array("10 credits",0,"20 credits",&H02000000,"30 credits",&H04000000,"40 credits",&H06000000)'dip 26&27
+    .AddFrame 2,150,190,"High game to date award",&HC0000000,Array("no award",0,"1 credit",&H40000000,"2 credits",&H80000000,"3 credits",&HC0000000)'dip 31&32
+    .AddFrame 2,225,190,"Balls per game",&H00C00000,Array("1 ball",0,"2 balls",&H00400000,"3 balls",&H00800000,"5 balls",&H00C00000)'dip 23+24
+    .AddFrame 2,300,190,"Replay or free ball award",&H18000000,Array("no award",0,"50,000 points",&H08000000,"extra ball",&H10000000,"replay",&H18000000)'dip 28+29
+    .AddFrame 210,0,190,"Tilt warning option",&H01000000,Array("no warnings",0,"2 warnings before tilt",&H01000000)'dip 25
+    .AddFrame 210,47,190,"Eyes target value",&H00000020,Array("starts at 10K",0,"starts at 25K",&H00000020)'dip 6
+    .AddFrame 210,94,190,"Spinner values memory",&H00000040,Array("will be reset",0,"will be kept in memory",&H00000040)'dip 7
+    .AddFrame 210,141,190,"Regular bonus option",&H00004000,Array("reset bonus after collected",0,"restore bonus after collected",&H00004000)'dip 15
+    .AddFrame 210,188,190,"Lock will light when",32768,Array("2 target banks are completed",0,"1 target bank is completed",32768)'dip 16
+    .AddFrame 210,235,190,"Eyes extra ball flashes",&H00200000,Array("at 100K",0,"at 75K",&H00200000)'dip 22
+    .AddChk 210,285,150,Array("Attract mode",&H00001000)'dip 13
+    .AddChk 210,305,150,Array("Enable extra ball",&H00002000)'dip 14
+    .AddChk 210,325,150,Array("Match feature",&H20000000)'dip 30
+    .AddChk 210,345,150,Array("Free play",&H00000080)'dip 8
+    .AddLabel 30,380,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")
+

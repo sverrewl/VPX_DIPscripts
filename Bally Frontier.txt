@@ -1,0 +1,27 @@
+'Bally Frontier
+'corrected by Inkochnito
+
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+    with vpmDips
+    .AddForm 400,500,"Frontier - DIP switches"
+    .AddFrame 2,0,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 2,76,190,"A && C lanes are",&H00000020,Array("separate",0,"linked",&H00000020)'dip 6
+    .AddFrame 2,122,190,"Outlane special lights",&H00000080,Array("alternate",0,"both lit",&H00000080)'dip 8
+    .AddFrame 2,168,190,"Feeder lane 15K lights",&H20000000,Array("alternate",0,"both lit",&H20000000)'dip 30
+    .AddFrame 2,214,190,"A-B-C extra ball lite",&H00000040,Array("comes on after making A-B-C lanes",0,"is on at start of the game",&H00000040)'dip 7
+    .AddFrame 205,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 205,76,190,"Frontier Bonus will stop",&H00400000,Array("at 60,000",0,"at 110,000",&H00400000)'dip 23
+    .AddFrame 205,122,190,"Outlane special lights come on when",&H00002000,Array("side drop target special is on",0,"side drop target 4X is on",&H00002000)'dip 14
+    .AddChk 205,175,120,Array("Credit displayed",&H04000000)'dip 27
+    .AddChk 205,192,120,Array("Match",&H08000000)'dip 28
+    .AddChk 205,209,190,Array("A-B-C lane memory",&H00004000)'dip 15
+    .AddChk 205,226,190,Array("Outhole collects Frontier bonus",32768)'dip 16
+    .AddChk 205,245,120,Array("Gate memory",&H00800000)'dip 24
+    .AddLabel 50,270,320,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,290,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  end with
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

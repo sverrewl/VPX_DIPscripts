@@ -1,0 +1,23 @@
+'Bally Bow and Arrow
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Bow and Arrow - DIP switches"
+    .AddFrame 0,0,180,"Coin chute #1",&H00000F00,Array("1 coin - 1 credit",0,"1 coin - 2 credits",&H00000800,"1 coin - 3 credits",&H00000400,"1 coin - 4 credits",&H00000C00)'dip 9+10+11+12
+    .AddFrame 0,76,180,"Coin chute #2",&H0000000F,Array("1 coin - 1 credit",0,"1 coin - 2 credits",&H00000008,"1 coin - 3 credits",&H00000004,"1 coin - 4 credits",&H0000000C)'dip 1+2+3+4
+    .AddFrame 0,152,180,"1st replay level",&HFE000000,Array("100K",&H4c000000,"150K",&HD2000000,"200K",&H23000000,"250K",&HBE000000)'dip 26-32
+    .AddFrame 0,228,180,"2nd replay level",61440,Array("level 1+ 20K",40960,"level 1+ 40K",&H00005000,"level 1+ 60K",61440)'dip 13+14+15+16
+    .AddFrame 200,228,180,"3rd replay level",&H000000F0,Array("level 1+2+ 20K",&H000000A0,"level 1+2+ 40K",&H00000050,"level 1+2+ 60K",&H000000C0)'dip 5+6+7+8
+    .AddFrame 200,0,180,"Balls per game",&H00E00000,Array("1 ball",0,"2 balls",&H00800000,"3 balls",&H00400000,"4 balls",&H00C00000,"5 balls",&H00200000,"6 balls",&H00A00000,"7 balls",&H00600000,"8 balls",&H00E00000)'dip 22+23+24
+    .AddChk 200,140,180,Array("Display blinking",&H00010000)'dip 17
+    .AddChk 200,155,180,Array("Play melody",&H00020000)'dip 18
+    .AddChk 200,170,180,Array("Incentive",&H00040000)'dip 19
+    .AddChk 200,185,180,Array("Threshold awards special",&H00080000)'dip 20
+    .AddChk 200,200,180,Array("Lane awards special when lit",&H00100000)'dip 21
+    .AddLabel 50,300,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

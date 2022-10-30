@@ -1,0 +1,36 @@
+'Gottlieb James Bond
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"James Bond - DIP switches"
+    .AddChk 2,10,190,Array("Match feature",&H00020000)'dip 18
+    .AddChk 2,25,190,Array("Credits displayed",&H08000000)'dip 28
+    .AddChk 2,40,190,Array("Attract features",&H20000000)'dip 30
+    .AddFrame 2,60,190,"Maximum credits",49152,Array("8 credits",0,"10 credits",32768,"15 credits",&H00004000,"25 credits",49152)'dip 15&16
+    .AddFrame 2,136,190,"Coin chute 1 and 2 control",&H00002000,Array("seperate",0,"same",&H00002000)'dip 14
+    .AddFrame 2,182,190,"Playfield special",&H00200000,Array("awards replay",0,"awards extra time (20 units)",&H00200000)'dip 22
+    .AddFrame 2,228,190,"Extra time units award",&H80000000,Array("only 1 award per player",0,"multiple awards posible",&H80000000)'dip 32
+    .AddFrameExtra 2,274,190,"Attract sound",&H0002,Array("off",0,"play tune every 6 minutes",&H0002)'S-board dip 2
+    .AddFrameExtra 2,320,190,"Sounds",&H0001,Array("continuous sound",0,"scoring sounds only",&H0001)'S-board dip 1
+    .AddChk 205,10,190,Array("Coin switch tune",&H04000000)'dip 27
+    .AddChk 205,25,190,Array("Credit button tune",&H02000000)'dip 26
+    .AddChk 205,40,190,Array("Sound when scoring",&H01000000)'dip 25
+    .AddFrame 205,60,190,"High game to date awards",&H00C00000,Array("not displayed and no award",0,"displayed and no award",&H00800000,"displayed and 2 replays",&H00400000,"displayed and 3 replays",&H00C00000)'dip 23&24
+    .AddFrame 205,136,190,"Replay limit",&H00040000,Array("no replay limit",0,"one per game",&H00040000)'dip 19
+    .AddFrame 205,182,190,"Novelty mode",&H00080000,Array("normal mode",0,"special scores 50K",&H00080000)'dip 20
+    .AddFrame 205,228,190,"Game mode",&H00100000,Array("replay",0,"extra time",&H00100000)'dip 21
+    .AddFrame 205,274,190,"3rd coin chute credits control",&H00001000,Array("no effect",0,"add 9",&H00001000)'dip 13
+    .AddFrame 205,320,190,"Tilt penalty",&H10000000,Array("game over",0,"ball in play and loss of 5 time units",&H10000000)'dip 29
+    .AddLabel 105,370,190,20,"not used in time based version"
+    .AddFrame 105,386,190,"Balls per game",&H00010000,Array("5 balls",0,"3 balls",&H00010000)'dip 17
+    .AddLabel 50,445,300,20,"After hitting OK, press F3 to reset game with new settings."
+  End With
+  Dim extra
+  extra = Controller.Dip(4) + Controller.Dip(5)*256
+  extra = vpmDips.ViewDipsExtra(extra)
+  Controller.Dip(4) = extra And 255
+  Controller.Dip(5) = (extra And 65280)\256 And 255
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

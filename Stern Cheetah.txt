@@ -1,0 +1,29 @@
+'Stern Cheetah
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Cheetah - DIP switches"
+    .AddFrame 2,0,110,"Maximum credits",&H00060000,Array("10 credits",0,"15 credits",&H00020000,"25 credits",&H00040000,"40 credits",&H00060000)'dip 18&19
+    .AddFrame 2,76,110,"High score feature",&H00000020,Array("extra ball",0,"replay",&H00000020)'dip 6
+    .AddFrame 2,122,110,"Balls per game",&H00000040,Array("3 balls",0,"5 balls",&H00000040)'dip 7
+    .AddFrame 2,168,110,"Extra ball award",&H20000000,Array("100K points",0,"extra ball",&H20000000)'dip 30
+    .AddFrame 125,0,110,"High game to date",49152,Array("points",0,"1 free game",&H00004000,"2 free games",32768,"3 free games",49152)'dip 15&16
+    .AddFrame 125,76,110,"Extra ball limit",&H00010000,Array("1 per game",0,"1 per ball",&H00010000)'dip 17
+    .AddFrame 125,122,110,"Special limit",&H00200000,Array("1 per game",0,"1 per ball",&H00200000)'dip 22
+    .AddFrame 248,0,110,"Special award",&HC0000000,Array("no award",0,"100K points",&H40000000,"free ball",&H80000000,"free game",&HC0000000)'dip 31&32
+    .AddFrame 248,76,110,"Add-a-ball maximum",&H00001000,Array ("3 balls",0,"5 balls",&H00001000)'dip 13
+    .AddFrame 248,122,110,"5 bank start award",&H10000000,Array("no lite",0,"20K collect bonus",&H10000000)'dip 29
+    .AddChk 125,170,110,Array("Match feature",&H00100000)'dip 21
+    .AddChk 125,185,110,Array("Credits displayed",&H00080000)'dip 20
+    .AddChk 125,200,110,Array("Bonus memory",&H00800000)'dip 24
+    .AddChk 125,215,110,Array("Add-a-ball memory",&H00000010)'dip 5
+    .AddChk 248,170,110,Array("Background sound",&H00000080)'dip 8
+    .AddChk 248,185,110,Array("Start with 2X on",&H00002000)'dip 14
+    .AddChk 248,200,110,Array("3 star bank memory",&H00400000)'dip 23
+    .AddLabel 50,240,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

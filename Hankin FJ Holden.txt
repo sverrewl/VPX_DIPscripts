@@ -1,0 +1,26 @@
+'Hankin FJ Holden
+'Added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"FJ Holden - DIP switches"
+    .AddFrame 0,0,180,"Credits per coins",&H00000007,Array("1/1",&H00,"1/2",&H01,"1/3",&H02,"1/4",&H03,"1/1, 3/2",&H04,"1/2, 2/3",&H05,"2/3, 4/5",&H06,"2/5",&H07)'dips 1+2+3
+    .AddFrame 0,137,180,"High game to date award",&H00000060,Array("No award",0,"1 free game",&H00000020,"2 free games",&H00000040,"3 free games",&H00000060)'dip 6+7
+    .AddFrame 200,0,180,"Maximum credits",&H00030000,Array("5",0,"10",&H00010000,"15",&H00020000,"20",&H00030000)'dip 17+18
+    .AddFrame 200,76,180,"High score award",&H00000008,Array("Free game",0,"Extra ball",&H00000008)'dip 4
+    .AddFrame 200,122,180,"Eject hole bonus award",&H00000100,Array("Awards 1 bonus advance",0,"Awards 2 bonus advances",&H00000100)'dip 9
+    .AddFrame 200,168,180,"Triple target lamp cycle speed",&H00001000,Array("Fast",0,"Slow",&H00001000)'dip 13
+    .AddFrame 200,214,180,"Extra ball award after",&H00002000,Array("completing row 3",0,"completing row 2",&H00002000)'dip 14
+    .AddFrame 200,260,180,"Pop bumper award",&H00004000,Array("3X",0,"2X",&H00004000)'dip 15
+    .AddFrame 0,214,180,"Balls per game",32768,Array("3 balls",0,"5 balls",32768)'dip 16
+    .AddFrame 0,260,180,"Free game sound",&H00200000,Array("Special tune",0,"Knocker",&H00200000)'dip 22
+    .AddChk 0,310,180,Array("Triple target status memory",&H00000200)'dip 10
+    .AddChk 0,325,180,Array("Background sound",&H00000400)'dip 11
+    .AddChk 0,340,180,Array("Match feature",&H00000010)'dip 5
+    .AddChk 200,310,180,Array("Game Over tune",&H00000080)'dip 8
+    .AddChk 200,325,180,Array("Coin counter reset enable",&H00400000)'dip 23
+    .AddChk 200,340,180,Array("Self-test Time-out feature enable",&H00800000)'dip 24
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

@@ -1,0 +1,28 @@
+'Bally Embryon
+'Added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 280,252,"Embryon - DIP switches"
+    .AddFrame 2,2,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 2,78,190,"Top 3 drop targets feature",&H00000020,Array("lock award first, award second time",0,"award immediately",&H00000020)'dip 6
+    .AddFrame 2,124,190,"Hiting inside targets will",&H00100000,Array("light 1 outside light",0,"light 2 outside lights",&H00100000)'dip 21
+    .AddFrame 2,170,190,"Top feature lane arrows",&H00002000,Array("will be reset every ball",0,"will be kept in memory",&H00002000)'dip 14
+    .AddFrame 2,216,190,"Bonus multiplier lights",&H00000080,Array("will be reset every ball",0,"will be kept in memory",&H00000080)'dip 8
+    .AddFrame 2,262,190,"Lit bonus value",&H00000040,Array("will be reset every ball",0,"will be kept in memory",&H00000040)'dip 7
+    .AddChk 2,315,190,Array("Match feature",&H08000000)'dip 28
+    .AddChk 2,330,190,Array("Credits displayed",&H04000000)'dip 27
+    .AddChk 2,345,190,Array("Attract mode",&H20000000)'dip 30
+    .AddFrame 210,2,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 210,78,190,"Replay limit",&H10000000,Array("1 replay per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddFrame 210,124,190,"A and B lane adjustment",&H00800000,Array("both lights will be reset",0,"any lit light will come back on",&H00800000)'dip 24
+    .AddFrame 210,170,190,"1 and 2 top lane adjustment",&H00400000,Array("both lights will be reset",0,"any lit light will come back on",&H00400000)'dip 23
+    .AddFrame 210,216,190,"Center outside target lights",&H00200000,Array("all lights will be reset",0,"any lit light will come back on",&H00200000)'dip 22
+    .AddFrame 210,262,190,"3 Side drop tagets value lights",32768,Array("all lights will be reset",0,"any lit light will come back on",32768)'dip 16
+    .AddFrame 210,308,190,"Single drop target value lights",&H00004000,Array("will be reset every ball",0,"will be kept in memory",&H00004000)'dip 15
+    .AddLabel 50,370,310,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 70,390,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

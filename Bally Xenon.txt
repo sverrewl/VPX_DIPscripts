@@ -1,0 +1,28 @@
+'Bally Xenon
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Xenon - DIP switches"
+    .AddChk 7,10,180,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,10,115,Array("Credits display",&H04000000)'dip 27
+    .AddFrame 2,30,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 2,106,190,"Drop target 2X lite adjustment",&H00000020,Array("2X is off at start game",0,"2X is on at start game",&H00000020)'dip 6
+    .AddFrame 2,152,190,"Drop target tube exit value",&H00000040,Array("exit value does not step",0,"exit value steps up 1",&H00000040)'dip 7
+    .AddFrame 2,198,190,"Drop target special lite",&H00000080,Array("lite steps to 25000",0,"lite stays lit",&H00000080)'dip 8
+    .AddFrame 2,248,190,"Outlanes and flipper feed lanes",&H00002000,Array("1 lite comes on then alternates",0,"both lites come on",&H00002000)'dip 14
+    .AddFrame 2,298,190,"Top saucer scoring and Xenon lite",49152,Array ("scores 5,000 and no lite advances",0,"scores 10,000 and 1 lite advance",&H00004000,"scores 10,000 and 2 lite advances",49152)'dip 15&16
+    .AddFrame 205,30,190,"Balls per game",&HC0000000,Array ("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,106,190,"Side saucer mota special lite",&H00100000,Array("special resets with the score",0,"special will alternate",&H00100000)'dip 21
+    .AddFrame 205,152,190,"Side saucer mota score lites",&H00200000,Array("any lite will reset to 5,000",0,"any lite will come on for next ball",&H00200000)'dip 22
+    .AddFrame 205,198,190,"Side saucer mota lite advance",&H00400000,Array("mota lites advance 1 at a time",0,"mota lites advance 2 times",&H00400000)'dip 23
+    .AddFrame 205,248,190,"Side saucer mota 50K, 90K lite",&H00800000,Array("lites step to 50K only",0,"lites step to 90K",&H00800000)'dip 24
+    .AddFrame 205,298,190,"Game over attract",&H10000000,Array("no voice",0,"voice says: try me again",&H10000000)'dip 29
+    .AddFrame 205,348,190,"Top saucer first 2X lites adjust",&H20000000,Array("not in memory",0,"in memory",&H20000000)'dip 30
+    .AddLabel 50,400,300,20,"Set selftest position 17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,420,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

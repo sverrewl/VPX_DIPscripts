@@ -1,0 +1,16 @@
+'Bally Mata Hari (Okaegi version)
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Mata Hari - DIP switches"
+    .AddFrame 0,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits (free play)",&H03000000)'dip 25&26
+    .AddFrame 0,76,190,"Top saucer bonus multiplier start at",&H00400000,Array("3,000 points",0,"2X",&H00400000)'dip 23
+    .AddFrame 205,0,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddChk 205,84,120,Array("Match feature",&H08000000)'dip 28
+    .AddChk 205,104,120,Array("Credits displayed",&H04000000)'dip 27
+    .AddLabel 50,130,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

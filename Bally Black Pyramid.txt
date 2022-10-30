@@ -1,0 +1,24 @@
+'Bally Black Pyramid
+'Added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Black Pyramid - DIP switches"
+    .AddFrame 2,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits", &H01000000,"25 credits", &H02000000,"40 credits", &H03000000)'dip 25&26
+    .AddFrame 2,76,190,"Balls per game",&HC0000000,Array("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 2,154,190,"Bonus special",&H00600000,Array("on after 120K",0,"on with 120K",&H00400000,"on with 60K",&H00600000)'dip 22&23
+    .AddChk 2,217,100,Array("Match feature",&H08000000)'dip 28
+    .AddChk 2,232,100,Array("Credits display",&H04000000)'dip 27
+    .AddChk 2,247,100,Array("Attract sound",&H20000000)'dip 30
+    .AddFrame 205,0,190,"Left lane X-ball build up",&H000000C0,Array("90000",0,"80000",&H00000040,"70000",&H00000080,"50000",&H000000C0)'dip 7&8
+    .AddFrame 205,76,190,"Bonus special per game",&H00000020,Array("only 1",0,"unlimited",&H00000020)'dip 6
+    .AddFrame 205,122,190,"M and I return lanes",&H00002000,Array("lanes separated",0,"lanes tied together",&H00002000)'dip 14
+    .AddFrame 205,168,190,"Left roll up lane",&H00100000,Array("20000 initially unlit",0,"20000 initially lit",&H00100000)'dip 21
+    .AddFrame 205,214,190,"Right lane 50000",&H00800000,Array("alternates",0,"stays on",&H00800000)'dip 24
+    .AddLabel 25,270,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 25,290,350,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

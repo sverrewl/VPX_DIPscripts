@@ -1,0 +1,22 @@
+'Bally Granny and the Gators
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Granny and the Gators - DIP switches"
+    .AddFrame 0,0,190,"Canoes per game",&HC0000000,Array("2 canoes",&HC0000000,"3 canoes",0,"4 canoes",&H80000000,"5 canoes",&H40000000)'dip 31&32
+    .AddFrame 0,76,190,"Center hoop shot flashes",&H00000020,Array("long",0,"short",&H00000020)'dip 6
+    .AddFrame 0,122,190,"Exit to video light will come on for",&H00800000,Array("paddle power",0,"next canoe",&H00800000)'dip 24
+    .AddFrame 0,168,190,"Game mode",&H20000000,Array("normal",0,"free play",&H20000000)'dip 30
+    .AddChk 0,220,190,Array("Credits displayed",&H04000000)'dip 27
+    .AddChk 0,235,190,Array("Center rollover lights in memory",&H00000080)'dip 8
+    .AddChk 0,250,190,Array("Extra canoe light in memory",&H00004000)'dip 15
+    .AddLabel 0,270,200,15,"Set 'High score mode' to 03"
+    .AddLabel 0,285,200,15,"(press 7) for the best gameplay."
+    .AddLabel 0,305,200,15,"After hitting OK, press F3 to"
+    .AddLabel 0,320,200,15,"reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

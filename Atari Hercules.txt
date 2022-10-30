@@ -1,0 +1,24 @@
+'Atari Hercules
+'Added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Hercules - DIP switches"
+    .AddFrame 2,2,190,"High score award",&HC0000000,Array("3 replays",&H40000000,"2 replays",&HC0000000,"1 replay",0,"nothing",&H80000000)'dip 31+32
+    .AddFrame 2,77,190,"Special award",&H00000050,Array("replay",&H00000050,"extra ball",&H00000040,"50,000 points",&H00000010,"60,000 points",0)'dip 5+7
+    .AddFrame 2,152,190,"Maximum credits",&H00000007,Array("10 credits",6,"20 credits",4,"30 credits",2,"40 credits",0)'dip 1+2+3
+    .AddFrame 2,227,190,"Coins per credit",&H001C0000,Array("1 coin 1 credit",&H001D0000,"1 coin 2 credits",&H001B0000,"1 coin 3 credits",&H00190000,"1 coin 4 credits",&H00170000,"2 coins 1 credits",&H001E0000)'dip 17+19+20+21
+    .AddFrame 210,2,190,"Extra ball award",&H00006000,Array("extra ball",&H00006000,"20,000 points",&H00004000,"30,000 points",0)'dip 14+15
+    .AddFrame 210,64,190,"Return lanes features",2129920,Array("always off",0,"alternating with slingshots",2097152,"both lanes lit",2129920)'dip 16+22
+    .AddFrame 210,126,190,"Feature ladder memory",&H20000000,Array("feature ladder kept in memory",&H20000000,"resets after ball drains",0)'dip 30
+    .AddFrame 210,174,190,"Upper lanes features",&H00001000,Array("start and advance features",&H00001000,"start features only",0)'dip 13
+    .AddFrame 210,222,190,"Game mode",&H00000020,Array("coin operated",&H00000020,"free play",0)'dip 6
+    .AddFrame 210,269,190,"Balls per game",&H00000008,Array("3 balls",&H00000008,"5 balls",0)'dip 4
+    .AddChk 2,325,100,Array("Match feature",&H00000080)'dip 8
+    .AddChk 110,325,140,Array("High score million limit",&H00400000)'dip 23
+    .AddChk 260,325,130,Array("High score displayed",&H00800000)'dip 24
+    .AddLabel 50,350,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

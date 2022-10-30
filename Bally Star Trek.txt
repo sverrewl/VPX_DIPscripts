@@ -1,0 +1,24 @@
+'Bally Star Trek
+'by Gaston, modified by Guittar
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 320,258,"Star Trek - DIP switch settings"
+    .AddChk 214,218,95,Array("Match feature",&H00100000)
+    .AddChk 214,234,95,Array("Credits display",&H00080000)
+    .AddFrame 2,5,88,"HyperSpace lane",&H00200000,Array("start at 2K",0,"start at 4K",&H200000)
+    .AddFrame 2,55,88,"BALLY value",&H10000000,Array("start at 10K",0,"start at 25K",&H10000000)
+    .AddFrame 2,105,88,"BALLY Special",&H00400000,Array("each time",&H400000,"only once",0)
+    .AddFrame 2,155,88,"Center target",&H00800000,Array("always lit",&H800000,"alternating",0)
+    .AddFrame 2,205,88,"Outlanes",&H20000000,Array("both lit",&H20000000,"alternating",0)
+    .AddFrame 105,5,88,"Balls per game",&H0F009F1F,Array("3 balls",&H01000A04,"5 balls",&H01008A04)
+    .AddFrame 105,53,88,"Play mode",&H00006000,Array("replay",&H6000,"extra ball",&H4000,"novelty",0,"unknown",&H2000)
+    .AddFrame 105,129,88,"Sound settings",&H80000080,Array("few",0,"more",&H80,"most",&H80000000,"full",&H80000080)
+    .AddFrame 105,205,88,"Return lanes",&H40000000,Array("both lit",&H40000000,"alternating",0)
+    .AddFrame 208,5,93,"High game to date",&H00000060,Array("no award",0,"1 credit",&H20,"2 credits",&H40,"3 credits",&H60)
+    .AddFrame 208,83,93,"Max. credits",&H00070000,Array("5 credits",0,"10 credits",&H10000,"15 credits",&H20000,"20 credits",&H30000,"25 credits",&H40000,"30 credits",&H50000,"35 credits",&H60000,"40 credits",&H70000)
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+

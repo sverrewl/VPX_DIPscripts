@@ -1,0 +1,23 @@
+'Atari The Atarians
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"The Atarians - DIP switches"
+    .AddFrame 0,5,190,"Coins per credit",&H000000C3,Array("1 coin 1 credit",0,"1 coin 2 credits",&H00000002,"1 coin 3 credits",&H00000001,"1 coin 4 credits",&H00000003,"2 coins 1 credits",&H00000080)'SW2-3&SW2-4&SW2-5&SW2-6 (dip 2&1&8&7)
+    .AddFrame 0,95,190,"Maximum credits",49152,Array("8 credits",0,"12 credits",32768,"15 credits",&H00004000,"20 credits",49152)'SW1-5&SW1-6 (dip 16&15)
+    .AddFrame 0,172,190,"Game option",&H00000100,Array("off",0,"on",&H00000100)'SW1-4 (dip 9)
+    .AddFrame 0,220,190,"Balls per game",&H00000008,Array("5 balls",0,"3 balls",&H00000008)'SW2-1 (dip 4)
+    .AddFrame 0,268,190,"Game option",&H00001000,Array("off",0,"on",&H00001000)'SW1-8 (dip 13)
+    .AddFrame 210,5,190,"Score threshold level",&H000F0000,Array("20K-30K-40K",0,"60K-90K-120K",&H00040000,"90K-130K-170K",&H00070000,"130K-190K-250K",&H000B0000,"170K-250K-330K",&H000F0000)'Rotary (dip 17&18&19&20)
+    .AddFrame 210,95,190,"Special award",&H00000030,Array("200,000 points",0,"10,000 points",&H00000010,"extra ball",&H00000020,"replay",&H00000030)'SW2-7&SW2-8 (dip 6&5)
+    .AddFrame 210,172,190,"Game option",&H00000400,Array("off",0,"on",&H00000400)'SW1-2 (dip 11)
+    .AddFrame 210,220,190,"Game option",&H00000200,Array("off",0,"on",&H00000200)'SW1-3 (dip 10)
+    .AddFrame 210,268,190,"Game option",&H00002000,Array("off",0,"on",&H00002000)'SW1-7 (dip 14)
+    .AddChk 0,320,190,Array("Match feature",&H00000004)'SW2-2 (dip 3)
+    .AddChk 210,320,190,Array("Diagnostic mode (must be off)",&H00000800)'SW1-1 (dip 12)
+    .AddLabel 50,350,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

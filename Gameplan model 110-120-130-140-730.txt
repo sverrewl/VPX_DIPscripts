@@ -1,0 +1,18 @@
+'Gameplan
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips:Set vpmDips=New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Gameplan - DIP switches"
+    .AddFrame 2,5,190,"Maximum credits",&H07000000,Array("5 credits",0,"10 credits",&H01000000,"15 credits",&H02000000,"20 credits",&H03000000,"25 credits",&H04000000,"30 credits",&H05000000,"35 credits",&H06000000,"40 credits",&H07000000)'dip 25&26&27
+    .AddFrame 210,97,190,"High game to date award",&HC0000000,Array("no award",0,"1 credit",&H40000000,"2 credits",&H80000000,"3 credits",&HC0000000)'dip 31&32
+    .AddFrame 210,5,190,"Special award",&H10000000,Array("extra ball",0,"replay",&H10000000)'dip 29
+    .AddFrame 210,51,190,"Balls per game",&H08000000,Array("3 balls",0,"5 balls",&H08000000)'dip 28
+    .AddChk 2,140,150,Array("Play tunes",32768)'dip 16
+    .AddChk 2,155,150,Array("Match feature",&H20000000)'dip 30
+    .AddChk 2,170,150,Array("Free play",&H00000080)'dip 8
+    .AddLabel 30,200,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips=GetRef("editDips")

@@ -1,0 +1,27 @@
+'Bally Fireball Classic
+'added by Inkochnito
+Sub editDips
+  Dim vpmDips : Set vpmDips = New cvpmDips
+  With vpmDips
+    .AddForm 700,400,"Fireball Classic - DIP switches"
+    .AddFrame 0,0,190,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)'dip 25&26
+    .AddFrame 0,76,190,"Initial bonus special",&H000000C0,Array("50K",0,"100K",&H00000040,"150K",&H00000080,"200K",&H000000C0)'dip 7&8
+    .AddFrame 0,152,190,"Additional bonus special",&H00000020,Array("with 50K",0,"with 100K",&H00000020)'dip 6
+    .AddFrame 0,198,190,"Bonus specials per game",&H00002000,Array("1 bonus special",0,"2 bonus specials",&H00002000)'dip 14
+    .AddFrame 0,244,190,"Lane specials per game",&H00004000,Array("1",0,"2",&H00004000)'dip 15
+    .AddChk 0,295,190,Array("Match feature",&H08000000)'dip 28
+    .AddChk 0,310,190,Array("Credits displayed",&H04000000)'dip 27
+    .AddChk 0,325,190,Array("Bonus held in memory",32768)'dip 16
+    .AddFrame 205,0,190,"Balls per game",&HC0000000,Array ("2 balls",&HC0000000,"3 balls",0,"4 balls",&H80000000,"5 balls",&H40000000)'dip 31&32
+    .AddFrame 205,76,190,"Boop ball arrow on with multiplier",&H00300000,Array("none",0,"2X",&H00100000,"3X",&H00200000,"5X",&H00300000)'dip 21&22
+    .AddFrame 205,152,190,"Captive balls at game over",&H00400000,Array("stay captive",0,"are kicked out",&H00400000)'dip 23
+    .AddFrame 205,198,190,"Ball on playfield",&H00800000,Array("off",0,"on",&H00800000)'dip 24
+    .AddFrame 205,244,190,"Replay limit",&H10000000,Array("1 replay per game",0,"unlimited replays",&H10000000)'dip 29
+    .AddFrame 205,290,190,"Attract sound",&H20000000,Array("off",0,"on",&H20000000)'dip 30
+    .AddLabel 50,350,350,20,"Set selftest position 16,17,18 and 19 to 03 for the best gameplay."
+    .AddLabel 50,370,300,20,"After hitting OK, press F3 to reset game with new settings."
+    .ViewDips
+  End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
+
