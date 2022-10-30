@@ -1,0 +1,46 @@
+'*********************************************************************
+'Bally Grand Slam
+'Added coin chutes by Mike da Spike
+'*********************************************************************
+Sub editDips
+      Dim vpmDips : Set vpmDips = New cvpmDips
+      With vpmDips
+         .AddForm 315, 450,"Grand Slam - DIP Switches"
+         .AddFrame   2,   0, 160,"Coin Chute 1 (Coins/Credit)",&H0000001F,Array("2/1",&H0000000B,"1/1",&H00000000,"1/2",&H00000001)                                                              'dip 1-5
+         .AddFrame   2,  62, 160,"Coin Chute 2 (Coins/Credit)",&H00001F00,Array("2/1",&H00000B00,"1/1",&H00000000,"1/2",&H00000100)                                                              'dip 9-13
+         .AddFrame   2, 122, 160,"Coin Chute 3 (Coins/Credit)",&H000F0000,Array("Same as Chute#1",&H00000000,"1/1",&H00010000,"1/2",&H00020000)                                                  'dip 17-20
+         .AddFrame   2, 184, 160,"Balls per game",&HC0000000,Array("2",&HC0000000,"3",0,"4",&H80000000,"5",&H40000000)                                                                           'dip 31&32
+         .AddFrame   2, 260, 160,"Extra balls",&H00004000,Array("more then 1 extra ball per game",0,"1 extra ball per game",&H00004000)                                                          'dip 15
+         .AddFrame 187,   0, 160,"Flyaway value lites on next ball",32768,Array("lites will not come on",0,"lites will come on",32768)                                                           'dip 16
+         .AddFrame 187,  46, 160,"S&L return lane lite",&H00800000,Array("S&L lite not be tied",0,"S&L lite be tied together",&H00800000)                                                        'dip 24
+         .AddFrame 187,  92, 160,"Replays per game",&H10000000,Array("one per game",0,"unlimited",&H10000000)                                                                                    'dip 29
+         .AddFrame 187, 138, 160,"Outhole bonus score",&H20000000,Array("10K for each run",0,"5K for each run",&H20000000)                                                                       'dip 30
+         .AddFrame 187, 184, 160,"Flyaway 25K lite",&H00000040,Array("off at start",0,"on at start",&H00000040)                                                                                  'dip 7
+         .AddFrame 187, 230, 160,"Single & Double lite",&H00000020,Array("alternate",0,"always on",&H00000020)                                                                                   'dip 6
+         .AddFrame 372,   0, 160,"Runs to beat advances",&H00000080,Array("always on",0, "step off by 10",&H00000080)                                                                            'dip 8
+         .AddFrame 372,  46, 160,"Runs to beat",&H00700000,Array("20",&H00700000, "25",&H00600000, "30",&H00500000, "35",&H004000000, "40",&H00300000, "45",&H00200000, "50",&H00100000, "55",0) 'dip 21-23
+         .AddFrame 372, 176, 160,"Flyaway special",&H00002000,Array("alternate",0,"always on",&H00002000)                                                                                        'dip 14
+         .AddFrame 372, 222, 160,"Maximum credits",&H03000000,Array("10 credits",0,"15 credits",&H01000000,"25 credits",&H02000000,"40 credits",&H03000000)                                      'dip 25&26
+         .AddChk 187, 279, 160,Array("Credits displayed",&H04000000)                                                                                                                             'dip 27
+         .AddChk 187, 291, 160,Array("Match",&H08000000)                                                                                                                                         'dip 28
+         .AddLabel 89,342,385,40,"Set selftest position 16 & 17 for highscore feature, 19 for High score to date"
+         .AddLabel 132,362,300,40,"After hitting OK, press F3 to reset game with new settings."
+         .ViewDips
+      End With
+End Sub
+
+Set vpmShowDips = GetRef("editDips")
+'High Score feature :  
+'Self test position: 16 - 17
+'Reply               3    3 
+'Extra ball          2    2
+'Novelty             1    1 
+'No award            0    0
+
+'High Score to date :  
+'Self test position:  19 
+'No Award             0 
+'One Credit           1
+'Two credits          2
+'Three Credits        3
+'*********************************************************************
