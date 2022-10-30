@@ -4,11 +4,13 @@ The infomation below, comes from a forum post that Destruk made about the subjec
 
 I was confused by this for the longest time, always asking Inkochnito to make the menus for me. Anyway, I spent some time tonight looking over the core.vbs file and I understand how it works now.
 
+```text
 Originally, dips were set with this code in the script
 Controller.Dip(0) = (1*1 + 1*2 + 0*4 + 0*8 + 0*16 + 0*32 + 0*64 + 0*128) '01-08
 Controller.Dip(1) = (0*1 + 0*2 + 0*4 + 1*8 + 0*16 + 0*32 + 1*64 + 0*128) '09-16
 Controller.Dip(3) = (0*1 + 0*2 + 0*4 + 1*8 + 0*16 + 0*32 + 1*64 + 0*128) '17-24
 Controller.Dip(4) = (0*1 + 0*2 + 0*4 + 1*8 + 0*16 + 0*32 + 1*64 + 0*128) '25-32
+```
 
 and Core.vbs would multiply the values, add them together, and send the final total to visual pinmame to set all the dips to the desired values for you.
 
@@ -17,7 +19,7 @@ The WSHDlg control allows us to easily create menus at runtime.
 
 Using the above information, this chart will be handy for setting up menu systems -
 
-'''
+```text
         Dip#  Hex       Decimal
         ---------------------------
         1     1         1
@@ -52,12 +54,13 @@ Using the above information, this chart will be handy for setting up menu system
         30    20000000  536870912
         31    40000000  1073741824
         32    80000000  2147483648
-'''
+```
 
 Hex values are easier to deal with in this regard, so that's why they are preferred in the dip menu scripts. But you can use either.
 
 So, for example,
 
+```text
 'Bally Dolly Parton
 'added by Inkochnito
 Set vpmShowDips=GetRef("EditDips") ' This sets the F6 routine for vpmShowDips to run the subroutine "EditDips" rather than the standard dip menu in the VBS file
@@ -84,22 +87,25 @@ With vpmDips
   .ViewDips
 End With
 End Sub
+```
 
 So, in the above example, checking the Credits Displayed box will enable dipswitch 27 (&H04000000) - Dips are automatically saved on table exit by VPM, and they are automatically loaded when VP executes controller.run
 The dips are not changed unless you tell them to change.
 The dip switches are saved as a total value of each bank of 8 dip switches -
 
+```text
 Controller.Dip(0) = (1*1 + 1*2 + 0*4 + 0*8 + 0*16 + 0*32 + 0*64 + 0*128) '01-08 -- 1/2/4/8/16/32/64/128
 Controller.Dip(1) = (0*1 + 0*2 + 0*4 + 1*8 + 0*16 + 0*32 + 1*64 + 0*128) '09-16 -- 256/512/1024/2048/4096/8192/16384/32768
 
 Controller.Dip(3) = (0*1 + 0*2 + 0*4 + 1*8 + 0*16 + 0*32 + 1*64 + 0*128) '17-24 -- 65536/131072/262144/524288/1048576/2097152/4194304/8388608
 Controller.Dip(4) = (0*1 + 0*2 + 0*4 + 1*8 + 0*16 + 0*32 + 1*64 + 0*128) '25-32 -- 16777216/33554432/67108864/134217728/268435456/536870912/1073741824/2147483648
-
+```
 
 So, if you were to set Dolly Parton to a maximum credits of 40, with match displayed, and credits displayed, and high score to date awarding 1 credit, the value saved for the dips for that game would be
 &H03000000+&H08000000+&H04000000+&H00100000=&HF100000 or 252706816.
 
 
+```text
 possible options for a form are:
   .AddForm - create a form (AKA dialogue) - Width, Height, Window Name for the form
   .AddChk - add a chckbox - X Location, Y Location, Width, Array of text and value when checked
@@ -108,6 +114,7 @@ possible options for a form are:
   .AddFrameExtra - - "" - for non-dip settings
   .AddLabel - add a label (text string) - X Location, Y Location, Width, Height, Text (simply displays a line of text)
   .ViewDips - Show form - this is already in the vbs file for the system, ie - WPC.VBS
+```
 
 Case keyShowDips If IsObject(vpmShowDips) Then .Pause = True : vpmShowDips : .Pause = False
 
