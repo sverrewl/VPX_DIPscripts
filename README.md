@@ -121,3 +121,5 @@ Case keyShowDips If IsObject(vpmShowDips) Then .Pause = True : vpmShowDips : .Pa
 .ViewDipsExtra - - "" - with non-dip settings
 
 If you use ViewDipsExtra and AddChkExtra and AddFrameExtra, the dip value for those will be saved in vpreg.stg in the user folder of VP, and it will be kept separate from the controller.dip value in the nvram file for the romset.
+
+Interessting read from Gaston on Peyper.vbs : https://www.vpforums.org/index.php?showtopic=50249&p=509437
