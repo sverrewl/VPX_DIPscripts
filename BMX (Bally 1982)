@@ -1,0 +1,34 @@
+'*************************************
+'BMX
+'by Mike da Spike
+'*************************************
+Sub editDips
+    Dim vpmDips:Set vpmDips = New cvpmDips
+    With vpmDips
+	.AddForm 500, 600, "BMX - DIP switches"
+	.AddFrame 2, 0, 120,   "Credits/Coin Chute 1", &H0000001F, Array("1/1", 0, "1/2", &H0000000B, "2/1", &H00000001, "5/2",&H0000000F, "14/1",&H0000000A)									'dip 1-5
+	.AddFrame 2, 90, 120, "Credits/Coin Chute 2", &H0001F000, Array("Same a Chute #1", 0, "1/1", &H00010000, "2/1", &H00020000, "3/1", &H00030000, "4/1", &H00040000, "14/1",&H000E0000)					'dip 17-20
+	.AddFrame 2, 195, 120, "Credits/Coin Chute 3", &H00001F00, Array("1/1", 0, "1/2", &H00000B00, "2/1", &H00000100, "5/2", &H00000F00, "14/1", &H00000A00)									'dip 9-13
+	.AddFrame 140, 0, 120, "Maximum credits", &H03000000, Array("10 credits", 0, "15 credits", &H01000000, "25 credits", &H02000000, "40 credits", &H03000000)								'dip 25&26
+	.AddFrame 140, 75, 120, "Balls per game", &HC0000000, Array("2 balls", &HC0000000, "3 balls",  &H00000000, "4 balls", &H80000000,  "5 balls", &H40000000)								'dip 31&32  
+	.AddFrame 140, 150, 120,"6 Drop target extra ball",&H00000020,Array("off at next ball",0,"on at next ball",&H00000020)                                                                  				'dip 6
+	.AddFrame 140, 196, 120,"6 Drop target lites recall",&H00000040,Array("3 sec",0,"5 sec",&H00000040)                                                                      	            				'dip 7
+	.AddChk 140, 250, 120,  Array("Match feature", &H08000000)																				'dip 28
+	.AddChk 140, 270, 120,  Array("Credits displayed", &H04000000) 																				'dip 27					
+	.AddFrame 280, 0, 200,"Outlanes flap rollover button lite time",&H00000080,Array("deenergize after 2 sec",0, "deenergize after 1 sec",&H00000080)    									'dip 8
+	.AddFrame 280, 46, 200,"2X, 3X Targets flashing lites time",&H00002000,Array("5 sec",0,"8 sec",&H00002000)                                                                             					'dip 14
+	.AddFrame 280, 92, 200,"Wheel Special lite",&H00004000,Array("Speial lites after 11th wheel",0,"Speial lites after 8th wheel",&H00004000)                                              					'dip 15
+	.AddFrame 280, 138, 200,"Top saucer special collect",32768,Array("Only 1 special can be collected",0,"More than 1 special can be collected",32768)                                      				'dip 16		 
+	.AddFrame 280, 184, 200,"Wheel lites recall",&H00800000,Array("Lites on will not come for next bal",0,"Lites on for next ball",&H00800000)                                              				'dip 24
+	.AddFrame 280, 230, 200,"Replays per game",&H10000000,Array("one per game",0,"unlimited",&H10000000)                                                                                    				'dip 29
+'	.AddChk 120, 355, 263,  Array("Dip 21 (not used)", &H00100000)	                                    															'dip 21
+'	.AddChk 120, 315, 263,  Array("Dip 22 (not used)", &H00200000)																		                'dip 22
+'	.AddChk 120, 215, 263,  Array("Dip 23 (not used)", &H00400000)        																			'dip 23
+'	.AddChk 120, 155, 263,  Array("Dip 30 (not used)", &H20000000)			                    															'dip 30
+        .AddLabel 70, 295, 350, 20, "After hitting OK, press F3 to reset game with new settings."
+
+
+        .ViewDips
+    End With
+End Sub
+Set vpmShowDips = GetRef("editDips")
